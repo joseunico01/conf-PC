@@ -1,4 +1,3 @@
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -97,6 +96,7 @@ alias venv='source venv/bin/activate'
 alias runflutter='flutter run --no-sound-null-safety'
 alias vim='nvim'
 alias tree='tree -L 2'
+alias py='python3'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -126,4 +126,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="$PATH:/opt/mssql-tools/bin"
+
+# Configurar git en terminal
+git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+#export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(git_branch)\[\033[00m\] $ "
+export PS1='\[\e[0;1;2;38;5;172m\]\u\[\e[0;1;2;38;5;39m\]@\[\e[0;1;2;38;5;39m\]\H\[\e[0;1;38;5;172m\]:\[\e[0;1;38;5;40m\]\w \[\e[0;1;38;5;172m\]$(git_branch)$\[\e[0m\]'
+unset color_prompt force_color_prompt
 
