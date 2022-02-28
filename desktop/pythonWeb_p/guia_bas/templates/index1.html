@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block title %}
+    {{titulo}}
+{% endblock %}
+<!-- empieza mi contenido-->
+{% block content %}
+    <!-- empieza mi contenido-->
+    {% from 'macro1.html' import show_list_h %}
+    {{show_list_h(titulo)}}
+
+{% endblock %}
+
+

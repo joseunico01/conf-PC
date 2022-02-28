@@ -1,0 +1,26 @@
+#para crear una nuevo repositorio(copian el codigo por defecto)
+
+
+#subir una actualizacion a github
+#para ver el estado
+git status
+#para agregar 
+git add .
+#para mandar el mensaje q se cambiara
+git commit -m "mensaje"
+#para subir al servidor de git hub
+git push -u origin nombre_rama_a_modificar
+
+
+#creacion de ramas en mi repository
+#sirve para ver en q ramma te encuentras 
+git branch
+#para crear una nueva rama
+git branch nombre_rama_a_crear
+#para cambiarnos de rama
+git checkout nombre_rama_a_cambiar
+
+
+#Para clonar un repository
+git clone url_proyecto_clonar
+

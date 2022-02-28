@@ -1,0 +1,161 @@
+######################################
+COLECCIONES
+######################################
+Teoria Basica:
+    //añadir datos
+    //numeros.add(11);
+
+#ejemplo1: Una list acepta cualquier valor si no le das un parametro
+void main(){
+    List numeros=[1,2,3,4,5,6,7,8,9];
+    print(numeros);
+}
+
+#ejemplo2: esta lista solo acepta los valores tipo int
+void main(){
+    final List<int> numeros=[1,2,3,4,5,6,7,8,9];
+    print(numeros);
+}
+
+#ejemplo3: Crea una lista nueva de otra List segun la restriccion
+#metodo where devuelve todo segun la condicion
+#filtrando datos de la list
+void main(){
+    final List<int> numeros=[1,2,3,4,5,6,7,8,9];
+
+    var numerosMenores= numeros.where( (numero) => numero < 5 );
+    print(numerosMenores);
+}
+
+#ejemplo4: el firstWhere devuelve el primero de su condicion
+#filtrando datos de la list
+void main(){
+    final List<int> numeros=[1,2,3,4,5,6,7,8,9];
+
+    var numeroMenor= numeros.firstWhere((numero) => numero <5);
+    print(numeroMenor);
+}
+
+#ejemplo5: .map nos devuelve un iterable sirve para q nos develva en un array o coleccion
+#modificar o trabajar con la lista
+void main(){
+    final List<int> numeros=[1,2,3,4,5,6,7,8,9];
+
+    List<String> nombres=['Cane', 'Maria'];
+    var usuarios= nombres.map( (nombre) => 'Usuario: '+nombre).toList();
+    print(usuarios);
+
+}
+
+
+#ejemplo6: Eliminar un dato de la lista
+void main(){
+    final List<int> numeros=[1,2,3,4,5,6,7,8,9,10];
+
+    List<String> nombres=['Cane', 'Maria'];
+    var usuarios= nombres.map( (nombre) => 'Usuario: '+nombre).toList();
+
+    var numeroQuitar=numeros[2];
+    //primer forma de quitar
+    numeros.remove(numeroQuitar);
+    print(numeros);
+
+    //segunda forma de quitar
+    numeros.removeAt(1);
+    print(numeros);
+
+    //eliminar un elemento de una lista si se cumple una determinada condicion
+    numeros.removeWhere( (numero)=> numero ==10 );
+    print(numeros);
+}
+
+#ejemplo7: Ordenar una lista
+void main(){
+    final List<int> numeros=[15,4,6,48,71,2,-4,-48,-11,50,23,16];
+
+    //ordenar un numero de mayor a menor
+    numeros.sort();
+    print(numeros);
+
+}
+
+
+######################################
+ACTUALIZACIONES
+######################################
+var foo = List<int>();  // Now error
+var bar = List<int>(n); // Now error
+var baz = List<int>(0); // Now error
+
+
+
+###### AHORA SE USA ASI #############
+var foo = <int>[];           // Always the recommended way.
+var bar = List.filled(1, 0); // Not filled with `null`s.
+var baz = List<int>.empty();
+#####################################
+
+#ejemplo8: Ahora se usa asi
+void main(){
+    var list=[1,6,7,32,45];
+
+    print(list.length);
+
+    for(int i=0 ; i<list.length ; i++){
+        print("El valor del indice $i es "+ list[i].toString());
+    }
+
+//Asi se usa la creacion d un new List<String>
+var onlyString =<String>[]; 
+onlyString.add("Flutter");
+onlyString.add("Dart");
+onlyString.add("Es genial");
+
+for(int i=0 ; i <onlyString.length ; i++){
+    print(onlyString[i].toString());
+    }
+}
+
+#ejemplo9
+class Persona{
+    String nombre="";
+}
+
+void main(){
+    var list=[1,6,7,32,45];
+
+    print(list.length);
+
+    for(int i=0 ; i<list.length ; i++){
+        print("El valor del indice $i es "+ list[i].toString());
+    }
+
+//Asi se usa la creacion d un new List<String>
+var onlyString =<String>[]; 
+onlyString.add("Flutter");
+onlyString.add("Dart");
+onlyString.add("Es genial");
+
+for(int i=0 ; i <onlyString.length ; i++){
+    print(onlyString[i].toString());
+    }
+
+    var listPersona=<Persona>[];
+
+    var persona1 =new Persona();
+    persona1.nombre="Rodrigo";
+
+    var persona2=new Persona();
+    persona2.nombre="Juan";
+
+    //Agregamos en la listPersona los 2 objetos
+    //1er forma
+    listPersona.add(persona1);
+    listPersona.add(persona2);
+
+    //Mostramos los mediante una iteracion del List listPersona
+    for( var x in listPersona ){
+        print(x.nombre);
+    }
+}
+

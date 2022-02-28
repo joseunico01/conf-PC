@@ -1,0 +1,22 @@
+######################################
+COLECCIONES1 - MAPS - DICCIONARIO
+######################################
+
+void main(){
+    var groups={
+        "Perro":"Animal",
+        "Bus": "Vehiculo"
+    };
+
+    //Mostramos un resultado de un maps
+    print(groups["Perro"]);
+
+    //Recorrer un DICCIONARIO
+    groups.forEach((k,v) =>print(k));
+
+    //Recorrer un DICCIONARIO, mostramos mediante el diccionario en parentesis
+    print(groups.keys);
+
+    //Para mostrar los valores del diccionario
+    print(groups.values);
+}

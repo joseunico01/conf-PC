@@ -1,0 +1,303 @@
+###################################################################
+                                DOCKER
+####################### CONFIGURACION GENERAL #####################
+#Instalar docker
+#buscamos en google y nos mandara a la instalacion oficial de docker
+docker install
+
+usuario:joek.elunico.2016@gmail.com
+contaseña: segundo......
+
+-------------------------------------------------------------------
+#Install docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+-------------------------------------------------------------------
+
+#como descargar una imagen de docker
+docker pull postgres
+
+#como correr una aplicacion en docker
+docker run nombre_app
+
+#como ver que imagenes tenemos instaladas
+docker images
+
+#ver las imagenes q se estan ejecutando
+docker images | head
+
+#ver las imagenes por el tipo de nombre
+docker images | grep "nombre_a_bsucar"
+
+# Mostrar los contenedores q estamos corriendo
+docker ps 
+
+#Mostrar todos los contenedores q corrieron hace un tiempo
+docker ps -a 
+
+###################################################################
+PARA RECUPERAR LOS DATOS DE UN CONTENEDOR DE UNA IMAGEN Q CORRIMOS
+###################################################### INICIO #####
+#1er paso:                                                        #
+docker ps -a                                                      #
+#2do paso:copiamos el nombre "CONTAINER_ID"                       #
+docker start "CONTAINER_ID"                                       #
+                                                                  #
+#opcional, ver lo q se esta ejecutando en docker                  #
+docker ps                                                         #
+######################################################## FIN ######
+###################################################################
+
+#Para ver la salesperaida de nuestro imagen
+docker logs "CONTAINER_ID"
+
+#Para mostrar la salida de la imagen q se estan corriendo
+docker logs -f "CONTAINER_ID"
+
+#Para ejecutar a una imagen q ya esta corriendo y en una terminal
+docker exec -it "CONTAINER_ID" sh
+
+#Para detener un docker 
+docker stop "CONTAINER_ID" "CONTAINER_ID"
+
+#Para correr un docker en segundo plano
+docker run -d "postgres"
+
+###################################################################
+CREAR UNA IMAGEN DOCKERFILE
+###################################################### INICIO #####
+Ojo: este ejemplo esta echo en un archivo tipo node, y se crea al
+costado de los demas archivos, cada contenedor q construyamos para
+correr dependera del archivo o el tipo de archivo q sea
+-------------------------------------------------------------------
+#1er paso:                                                        #
+#creamos un archivo en nuestro directorio ~/docker-workspace/app/ #
+#ejemplo nvim Dockerfile
+
+#2do paso:
+#lo creamos con la siguiente estructura:
+
+FROM node:14.18-alpine3.14
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+CMD ["node", "/app/src/index.js"]
+
+#3er paso:
+#Ejecutamos el archivo Dockerfile con el sig. comando
+#docker build -t "nombre_q_deseemos"
+docker build -t getting-started .
+
+#4to paso:
+#hasta el paso anterior solo construimos la imagen, veremos q tenemos ejecutando
+#docker ps, ahora ejecutaremos nuestro archivo q hemos instaladp
+#docker run "archivo_q_ejecutamos_anteriormente"
+docker run getting-started
+
+#5to paso: Nos mostrara el siguiente mensaje, lo q significa q estara ejecutando
+#en el puerto localhost:3000, ojo pero este puerto seria dentro del contenedor d
+#docker
+Using sqlite database at /etc/todos/todo.db
+Listening on port 3000
+
+#6to paso:tenemos q cambiarlo a un puerto de nuestra computadora ctrl+c cancelar
+#la ejecucion y luego ejecutaremos en background y en un puerto igual al3000
+#en nuestra comptadora
+#docker run -dp 3000:3000 "archivo_q_ejecutamos_anteriormente"
+docker run -dp 3000:3000 getting-started
+
+#7to paso: docker ps ,para ver q se esta ejecuatndo
+#8vo paso: para frenar y luego copiamos el CONTAINER_ID
+docker ps
+docker stop "CONTAINER_ID"
+
+-------------------------------------------------------------------
+#OJO:paso1 Si queremos mantener los datos q guardamos en ese contenedor debemos
+#crearlo de la siguiente manera
+#docker run -d -v /home/joseluis/docker-workspace/app/etc:/etc/"base_de_datos_creada_por_sistema" -p 3000:3000 "contenedor_q_deseamos_ejecutar"
+docker run -d -v /home/joseluis/docker-workspace/app/etc:/etc/todos -p 3000:3000 getting-started
+
+#mostrara ejem: 508002c08bac458662d26164d3077aa8a47d494908378f9c357a5ef2e074ccd0
+
+#paso2:detener el contenedor
+docker ps 
+docker stop "CONTAINER_ID_que_corrimos"
+
+#paso3: volvemos a ejecutar y veremos q se mantiene guardado nuestra base de datos
+#nos mostrara otro codigo de ejecucion pero mantiene la info guardada
+docker run -d -v /home/joseluis/docker-workspace/app/etc:/etc/todos -p 3000:3000 getting-started
+
+#CAMBIO UNA INFO O MODIFICAMOS NUESTRO APLICATIVO NODE-------------
+#ojo cuando le damos el directorio de :/app/src  hagamos los cambios q hagamos no nesecitamos reiniciar el contenedor
+#Ojo #paso1: cambiamos el archivo en src/static/js/app.js 
+#Agregamos con el directorio general -v /direcorio:/app/src 
+#docker run -d -v /home/joseluis/docker-workspace/app/etc:/etc/todos -p 3000:3000 -v /home/joseluis/docker-workspace/app/src:/app/src getting-started
+docker run -d -v /home/joseluis/docker-workspace/app/etc:/etc/todos -p 3000:3000 -v /home/joseluis/docker-workspace/app/src:/app/src getting-started
+
+GUARDAR MI CONTENEDOR PARA COMPARTIR-------------------------------
+#primero debe de estar ejecutandose con todos las cambios q deseemos...
+#Al acabar de hacer todos los cambios nesecarios y queremos guardar, le ponemos:v2
+#para diferenciar en su segunda fase
+#docker build -t "nombre_contenedor_q_editamos":v2 .
+docker build -t getting-started:v2 .
+
+COMPARTIR MI IMAGEN CON UN REGISTRO
+#1er paso: primero logear en mi terminal con
+docker login
+
+#2do paso: Veremos nuestro contenedor q en uso
+docker images | head
+
+#3er paso: luego cambiaremos nuestro nombre de contenedor, primero nuestro nombre
+docker tag "IMAGE ID" "nombre_usuario/nombre_contenedor_q_editar:v2"
+docker tag 0d9c982dd8d0 josek159/getting-started:v2
+
+#4to paso: enviaremos un push a nuestra cuenta, no olvidar subir
+#primero mi nombre/nombre del contenedor
+docker push "nombre_contenedor_q_deseamos_subir:v2"
+
+#5to paso: nos dirigimos a nuestra cuenta de docker y en profile/repository
+veremos nuetros archivos
+
+######################################################## FIN ######
+###################################################################
+
+
+###################################################################
+CORRER VARIOS CONTENEDORES A LA VEZ
+###################################################### INICIO #####
+#OJO: Nos dirigimos una carpeta donde deseemos ejecutar 2 tipos
+#archivos diferentes, como una app con BBDD
+#sera dentro /home/joseluis/docker-workspace/multi-container
+
+#paso1: Crear una nueva red
+#docker network create "nombre_q_deseemos_nueva_red"
+docker network create todo-app
+
+#paso2: mandaremos la informacion
+docker run -d \
+> --network todo-app --network-alias mysql \  #Para conectarse a mysql
+> -v todo-mysql-data:/var/lib/mysql \  #Para levantar el mismo BBDD
+> -e MYSQL_ROOT_PASSWORD=secret \                                    
+> -e MYSQL_DATABASE=todos \                                            
+> mysql:5.7
+
+#paso3: veremos q ya se tiene ejecutando mysql
+#docker exec -it "CONTAINER_ID" mysql -p
+docker ps 
+docker exec -it cd380222f35c mysql -p
+#mostrara: Enter password:
+]b
+#paso4:Correr un contenedor dentro ese mysql, le pasamos --network todo-app,
+#para q se ejecute dentro de mi contenedor
+docker run -it --network todo-app nicolaka/netshoot
+
+#paso 5: para resolver la IP de mysql ejecutamos dentro de netshoot, y exit para salir
+dig mysql
+
+#paso6: OJO:estamos pasando nuestro app de node q estaba conectada a SQL-lite y ahora a mysql
+docker run -dp 3000:3000 \  #pasamos el puerto para nuestro localhost
+> --network todo-app \  #para q se ejecute en nuestro contenedor
+> -e MYSQL_HOST=mysql \
+> -e MYSQL_USER=root \
+> -e MYSQL_PASSWORD=secret \
+> -e MYSQL_DB=todos \
+> getting-started:v2  #pasamos el nombre de nuedtro contenedor donde esta la app ode
+
+#paso7:  verificar si estamos conectados
+docker logs "CONTAINER_ID"
+
+#paso8: Ojo se tenemos una app y una BBDD debemos ver q esten en el mismo puerto y compartido
+#el puerto en pc, tambien comprobando con docker logs "CONTAINER_ID"
+
+######################################################## FIN ######
+###################################################################
+
+
+###################################################################
+DOCKER COMPOSE
+###################################################### INICIO #####
+#Ojo: Este metodo resume los pasos anteriores
+#Ojo: Nos ubicamos en el archivo donde queramos ejecutar
+
+#Paso1: Creamos en nuestra carpeta este archivo
+#/home/joseluis/docker-workspace/multi-container/nvim docker-compose.yaml, en si
+#este archivo siempre viene en nuestro contenedores
+nvim docker-compose.yaml
+
+#paso2: La estructura de este docker-compose.yaml
+-------------------------------------------------------------------------------------------------------------------------------------------------
+version: "3.7"
+services:
+
+#docker run -dp 3000:3000 --network todo-app -e MYSQL_HOST=mysql -e MYSQL_USER=root -e MYSQL_PASSWORD=secret -e MYSQL_DB=todos getting-started:v2
+  app:
+    image: pablokbs/getting-started:v2
+    ports:
+      - 3000:3000
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+
+# docker run -d     --network todo-app --network-alias mysql     -v todo-mysql-data:/var/lib/mysql     -e MYSQL_ROOT_PASSWORD=secret     -e MYSQL_DATABASE=todos     mysql:5.7
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./todo-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+#paso3: Correr el archivo composer
+docker-compose up -d
+
+#paso_DUDA: tratar de conectar se usa,NO ESTOY SEGURO
+docker logs "BBDD"
+
+#paso4: Para apagar el servicio de compose
+docker-compose down
+
+######################################################## FIN ######
+###################################################################
+
+___________________________________________________________________________
+###########################################################################
+===========================================================================
+  ELIMINAR IMAGES -CONTAINER
+################################# INICIO ##################################
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  ELIMINAR UN CONTENEDOR
+  1.Detener el contenedor, para ver q contenedo se esta ejecutando
+  docker ps 
+  docker rm "CONTAINER_ID"
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  ELIMINAR UNA IMAGEN
+  1.Se debe de eliminar todo contenedor q se haya creado con su imagen
+  docker ps -a 
+  docker rmi "CONTAINER_ID"
+
+  2.Eliminar la imagen
+  docker images
+  docker rm "Nombre_imagen_a_eliminar"
+############################################################### FIN #######
+
+
+
+
+-------------------------ME QUEDE EN 46:30 corriendo varios container a la vez
+DOCKER 2021 - De NOVATO a PRO! (CURSO COMPLETO)
+
+___________________________________________________________________________
+###########################################################################
+ VER ESTADO DE DOCKER
+################################# INICIO ##################################
+description: 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  1.Digitar el siguiente codigo
+sudo systemctl status docker
+
+
+############################################################## FIN ########

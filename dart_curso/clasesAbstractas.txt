@@ -1,0 +1,45 @@
+######################################
+CLASES ABSTRACTAS
+######################################
+
+#ejemplo1: 
+abstract class Vehiculo{
+    String color="";
+    String modelo="";
+    String marca="";
+
+    void miCombustible();
+}
+
+class Camion extends Vehiculo{
+
+    @override
+        void miCombustible(){
+            print("Diesel");
+        }
+}
+
+class Auto extends Vehiculo{
+
+    @override
+        void miCombustible(){
+            print("Gasolina");
+        }
+}
+class Moto extends Vehiculo{
+
+    @override
+        void miCombustible(){
+            print("Gasolina");
+        }
+}
+
+void main(){
+    var camion=new Camion();
+    var auto =new Auto();
+    var moto= new Moto();
+    camion.miCombustible();
+    auto.miCombustible();
+    moto.miCombustible();
+}
+

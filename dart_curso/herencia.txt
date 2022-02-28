@@ -1,0 +1,151 @@
+######################################
+HERENCIA
+######################################
+
+#Ejemplo1:
+class Vehiculo{
+    String color="";
+    String modelo="";
+    String marca="";
+
+    void MostrarVehiculo(){
+        print("Marca: $marca, Moedlo $modelo, color: $color");
+    }
+}
+
+class Camion extends Vehiculo{
+
+}
+
+class Auto extends Vehiculo{
+
+}
+
+void main(){
+    var camion= new Camion();
+    camion.color="blanco";
+    camion.modelo="Truck";
+    camion.marca="Volvo";
+
+    camion.MostrarVehiculo();
+
+    var auto= new Auto();
+    auto.color="Rojo";
+    auto.modelo="Focus";
+    auto.marca="Ford";
+
+    auto.MostrarVehiculo();
+}
+
+####################### SOBREESCRIBIR METODOS ############################
+############################# @override  #################################
+
+#ejemplo1:
+class Vehiculo{
+    String color="";
+    String modelo="";
+    String marca="";
+
+    void MostrarVehiculo(){
+        print("Marca: $marca, Moedlo $modelo, color: $color");
+    }
+
+    void QueVehiculo(){
+        print("No esto implementando aun");
+    }
+}
+
+class Camion extends Vehiculo{
+
+    @override
+    void QueVehiculo(){
+        print("Soy un camion");
+    }
+
+}
+
+class Auto extends Vehiculo{
+
+}
+
+void main(){
+    var camion= new Camion();
+    camion.color="blanco";
+    camion.modelo="Truck";
+    camion.marca="Volvo";
+
+    camion.QueVehiculo();
+
+    var auto= new Auto();
+    auto.color="Rojo";
+    auto.modelo="Focus";
+    auto.marca="Ford";
+
+    auto.QueVehiculo();
+}
+
+#ejemplo2: herencia con constructor///OJO:Si el Padre tiene constructor los hijos tambien debe de tener constructor
+class Vehiculo{
+    String color="";
+    String modelo="";
+    String marca="";
+
+    Vehiculo(this.modelo, this.marca);
+
+    void MostrarVehiculo(){
+        print("Marca: $marca, Moedlo $modelo, color: $color");
+    }
+
+    void QueVehiculo(){
+        print("No esto implementando aun");
+    }
+}
+
+class Camion extends Vehiculo{
+    Camion(String modelo, String marca): super(modelo , marca);
+
+    @override
+    void QueVehiculo(){
+        print("Soy un camion");
+    }
+
+}
+
+class Auto extends Vehiculo{
+    Auto(String modelo, String marca): super(modelo , marca);
+
+}
+
+void main(){
+    var camion= new Camion("Truck", "Volvo");
+    camion.QueVehiculo();
+
+    var auto= new Auto("Focus", "Ford");
+    auto.QueVehiculo();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

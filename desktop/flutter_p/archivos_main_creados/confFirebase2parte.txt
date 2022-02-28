@@ -1,0 +1,80 @@
+___________________________________________________________________________
+###########################################################################
+===========================================================================
+CREAR UNA CONEXION DE FLUTTER CON FIREBASE  
+################################# INICIO ##################################
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+description: Nos guaimos de 1ManStartup(YT)
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  1. Despues de crear nuestra app,
+  flutter pub add firebase_core
+  
+  2. Actulizaremos los packages, solo una opcion
+  flutter pub get   ///  pub get
+  
+  3. Crearemos una app para q se conecte conectar nuestro google-service.json
+    en nuestro aplicativo
+
+  4.ejecutaremos el siguiente codigo
+  firebase init
+
+  5. Nos dara una serie de codigo con las flechs de arriba/abajo tendremos 
+    q dirigir hasta... y hacemos <space> luego <enter>
+  Emulators: Set up local emulators for FIrebase products
+
+  6. En caso yo ya cree un proyecto, si no tenemos un proyecto debemos de crearlo
+    (Create an existing proyect), en mi caso elegire
+    Use an existing proyect
+
+  7. (OPCIONAL)Luego elegimeros el proyecto deseado y nos preguntara el tipo de lenguaje 
+    a usar en cloud funtions,
+  Typescript
+
+     (OPCIONAL) en caso nos pregunte algo de EsLint(y/n)n,
+    luego nos preguntara dependncies 
+
+     (OPCIONAL) en caso nos pregunte to install dependncies with npm now? (y/n)y
+
+  8. which Firebase emulators do you to set up? Space ...; primero <space> luego de 
+    elegir las 3 opciones mostradas daremos enter
+  Autentication Emulators
+  Function Emulators
+  Firesore Emulators
+
+  9. Daremos enter a los 3 ya q dejaremos los puertos predeterminados
+  Which port do you to use fot auth emulators? <enter>
+  Which port do you to use fot auth emulators? <enter>
+  Which port do you to use fot auth emulators? <enter>
+
+  10. Daremos todo enter a lo predeterminado y yes en caso sea lo contrario
+  Which port to want to use for the Emulator UI?yes
+
+  11. Asi finalizaremos nuestra conexion a Firestore
+  ✔  Firebase initialization complete!
+
+  12. Agregar las dependencias en nuestro pubspec.yaml
+  cupertino_icons: ^1.0.2
+  cupertino_list_tile: ^0.2.0
+  firebase_core: "^0.7.0"
+  cloud_firestore: "^0.16.0+1"
+  firebase_auth: "^0.20.1"
+  cloud_functions: "^0.9.0"
+
+  13. Actualizar los packages, solo 1 opcion
+  pub get  /// flutter packages get
+
+
+  14. Agregamos este codigo en esta linea /android/app/build.gradle, debajo de este
+  apply plugin: 'com.android.application'
+  apply plugin: 'com.google.gms.google-services'
+
+  15. #https://firebase.flutter.dev/docs/manual-installation/android  #link de guia
+    completar los requistos de la guia en nuestra app
+
+  16. firebase emulators:start
+    Nos conectaremos a la linea de http://localhost:4000  
+
+  17.
+
+############################################################### FIN #######
+

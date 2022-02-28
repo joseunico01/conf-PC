@@ -1,0 +1,6 @@
+package com.codigocorrecto.testfirebase
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}

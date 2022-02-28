@@ -1,0 +1,13 @@
+######################################
+ARQUITECTURA
+######################################
+
+#Estructura de una aplicacion
+container = es todo la app
+header= es la parte superior
+columnns = es la parte del contenido
+
+#opciones
+TextField = para escribir un text
+Buttons = Botones
+

@@ -1,0 +1,30 @@
+___________________________________________________________________________
+###########################################################################
+===========================================================================
+  Correr MariaDB
+################################# INICIO ##################################
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+description: Instalacion
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  1. Ejecutamos
+  docker pull maria
+  
+  2.Vemos la creacion de la imagen de docker
+  docker images
+
+  3.Correr docker de MariaDB
+  docker run --name "nombre-nuevo-contenedor" -e MYSQL_ROOT_PASSWORD="contraseña" -d "nombre-version-imagen-maria-DB"
+  >>115151184454(codigo_ejemplo)
+
+  4.ver mi contenedor corriendo
+  docker ps
+
+  5.Ejecutar mi contenedor, solo cuando ya esta corriendo
+  docker exec -it "NAMES" bash
+
+  6.Acceder a mi mysql por terminal(bash)
+  mysql -p 
+  
+  7.Por fin podras ejecutar cualquier codigo en docker mariaDB
+
+############################################################### FIN #######

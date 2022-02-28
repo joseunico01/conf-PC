@@ -1,0 +1,141 @@
+#DOCUMENTACION DE CODIGO DART
+bool ; String ; var ;
+
+########################################
+IF - ELSE
+########################################
+
+#ejemplo1
+//1er forma extensa
+void main(){
+  bool esFluter=true;
+
+  if(esFluter== true){
+    print('si es genial');
+  }else{
+      print('no es genial');
+  }
+}
+
+//2da forma corta if-else
+    String resultado=esFluter ? "Si es genial" : "No es genial";
+    print(resultado);
+
+########################################
+SWITCH
+########################################
+
+#ejemplo1
+    void main(){
+        String paisHablaHispana="chile";
+        switch(paisHablaHispana){
+            case "canada":
+                print("Incorrecto");
+                break;
+            case "Francia":
+                print("Correcto");
+                break;
+            case "chile":
+                print("Correcto");
+                break;
+            default:
+                throw("ninguna opcion");
+        }
+    }
+
+#ejemplo2-con excepcion
+    void main(){
+        String paisHablaHispana="chile";
+        switch(paisHablaHispana){
+            case "canada":
+                print("Incorrecto");
+                break;
+            case "Francia":
+                print("Correcto");
+                break;
+            case "chile":
+                print("Correcto");
+                break;
+            default:
+                throw("ninguna opcion");
+        }
+    }
+
+########################################
+FOR
+########################################
+#ejemplo1
+void main(){
+    for(var i=0; i<5; i++){
+        print("iteracion numero $i");
+    }
+}
+
+#ejemplo2
+void main(){
+    for(var i=0; i<5; i++){
+        if(i%2==0){
+            print("Iteracion numero $i");
+        }
+    }
+}
+
+########################################
+WHILE
+########################################
+
+#ejemplo1
+void main(){
+    int maxIteracion=10;
+    int index= 0;
+    while(index <= maxIteracion){
+        print("Imprimiendo la iteracion  $index");
+        index ++;
+    }
+}
+
+########################################
+DO WHILE
+########################################
+
+#ejemplo1
+void main(){
+    int maxIteracion=10;
+    int index= 0;
+
+    do{
+        print("Hola mundo");
+        index=11;
+    }
+    while(index <= maxIteracion);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+___________________________________________________________________________
+###########################################################################
+===========================================================================
+  CREAR UN PROYECTO FLUTTER CON CONEXCION A FIREBASE
+################################# INICIO ##################################
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  OJO: No olvidar q en app/src/main/AndroidManifest.xml  se encuentra el
+      nombre de nuestra app
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  1. Crear una proyecto en firebase https://console.firebase.google.com/,
+    luego nos dirigimos a firestore database, y creamos nuestra BBDD
+
+  2. Crearemos una flutter create --org 'nombre_url_app' 'nombre_app'
+
+  3. Ahora lo vincularemos nuestra app para q funcione en android, lo descargaremos
+    y lo ubicaremos en 'nombre_app'/app
+  
+  4. Agregamos el codigo q nos proporciona nuestro firebase y luego
+    EXTRA: Actualizamos a esta version android/app/buil.gradle
+    defaultConfig {
+        minSdkVersion 21
+
+  5.Agregamos a nuestro pubspec.yaml y actualizamos flutter packages get
+  cupertino_icons: ^1.0.2
+  cloud_firestore: ^0.12.10+2
+
+
+############################################################### FIN #######

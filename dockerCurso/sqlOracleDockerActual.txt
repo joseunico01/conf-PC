@@ -1,0 +1,41 @@
+___________________________________________________________________________
+###########################################################################
+ INSTALAR ORACLE -DATABASE EN DOCKER
+################################# INICIO ##################################
+description: primero siempre es bueno reiniciar 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  1. Primero hacer login
+docker login
+
+  2. Copiar el pull para instalar la imagen de oracle 
+docker pull oraclelinux:"tags"
+docker pull oraclelinux:7.9
+
+  3. Luego correr el container
+docker run -d -p "puerto_docker":"puerto_pc" --name "nombre_container" oraclelinux:"tags"
+docker run -d -p 1521:1521 --name oracle1 oraclelinux:7.9
+
+  4. Luego iniciamos el container
+docker start "nombre_container"
+
+  5. Luego conectamos con el sqldeveloper
+
+
+############################################################## FIN ########
+
+
+___________________________________________________________________________
+###########################################################################
+ INSTALAR SQL DEVELOPER-ORACLE
+################################# INICIO ##################################
+description: debemos de tener el jdk 8-11 como minimo
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  1. Primero descrgamos el sqldeveloper.zip
+  2. Luego descomprimimos el archivo
+  3. Ingresamos al arhivo descomprimido y ejecutamos 
+./sqldeveloper.sh*
+  
+  4. Luego decimos q no a la ventana emergente
+  5. Conectar con nuestra BBDD
+
+############################################################## FIN ########

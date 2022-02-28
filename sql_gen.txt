@@ -1,0 +1,15 @@
+#COntra de sql server
+$3GundoPlan
+
+#PARA EVITAR ERROR EN MYSQL XAMMP 
+#tenemos q apagar en mysql. servicio de mysql
+1er paso: Probar el stado de myqsl
+service myqsl status
+
+2do paso: apagar el servicio
+service mysql stop
+
+3er paso: volver a correr XAMMP
+OJO: para volver a ejecutar mysql
+service mysql start
+

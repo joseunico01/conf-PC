@@ -1,0 +1,27 @@
+-------------------------------------
+#Error con Apache al ejecutar, y luego 
+#volver a ejecutar xampp
+sudo /etc/init.d/apache2 stop
+
+-------------------------------------
+
+#iniciar y cerrar el servidor xamp
+sudo /opt/lampp/lampp start
+sudo /opt/lampp/lampp stop
+
+-------------------------------------
+#Para trabajar comodamente es nesecario
+#permisos a la carpeta de htdocs
+
+sudo chmod -R 777 htdocs
+-------------------------------------
+#link para Abrir el administrador de mysql
+http://localhost/phpmyadmin/
+
+-------------------------------------
+#ERROR: /opt/lampp/share/xampp/xampplib: 
+#line 22: netstat: command not found
+#ok.
+sudo apt install net-tools
+
+-------------------------------------

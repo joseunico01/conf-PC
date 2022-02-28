@@ -1,0 +1,70 @@
+
+
+-------------------------INICIAR EN GIT CREAR O CLONAR------------------------------
+git init				crear un repositorio nuevo
+git clone HTTP....			clonar un reositorio
+git clone HTTP...  ./			clonar en la carpeta actual
+git clone -b (branch-name) HTTP...	clonar una rama especifica
+----------------------------------------------------------------------------
+git status				ver q archivo nuevo se ha creado en nuestro git
+git add .///nombre.ext			para agregar a nuestro intermediario
+git commit -m "mensaje"			mandar un commentario
+git remote add origin HTTP...		en caso hayamos creado nuestro proyecto/
+					omitir si lo clonamos
+
+>>>CAMBIAR DE RAMA, CAMBIAR DE BRANCH, IGUAL AL NOMBRE DE NUESTRO GITHUB
+nombre de nuestra rama(main)
+git checkout main
+git remote add origin/main Http..
+(no recomendada)git remote add main http..
+git push main
+git push -u main
+git push -u origin main
+--
+nombre de nuestra rama(login)
+git checkout login
+git remote add login http..
+(no recomendada)git remote add origin/login Http..
+git push -u origin login
+git push -u login
+git push login
+
+>>>
+git push				enviar al repositorio, para los git clonado
+git push -u origin (nombre_branch)	enviar al repositorio github
+
+------------------CREAR UNA .GITIGNORE -------------
+1er 	creamos un archivo .gitignore
+2do	escribir dentro del .gitignore		nombre_carpeta		en caso de carpetas
+						nombre_archivo.txt	en caso de files
+3er	git add .gitignore
+5to	git status 				Solo aparece el .gitignore
+-----------------------------------------------------------------}
+
+--------------------CREAR UNA LINEA TEMPORAL-------------------
+git branch				para ver q lineas tem. activas tenemos
+git branch nombre_nueva_linea		Crear una nueva linea temporal
+git checkout nombre_linea_cambiar	para cambiar de linea temporal
+git branch -m nombre_lin actual_nombre	para cambiar de nombre a una linea de tiempo
+git branch -d nombre_linea		para eliminar el nombre de una linea de tiempo
+-------------------------------------------------------------------------
+
+----------CREA UN NUEVO REPOSITORIO EN LA LINEA DE COMANDOS----------
+echo "# pru" >> README.md 
+git init 
+git agregar README.md 
+git commit -m "primer compromiso" 
+git branch -M main 
+git remote agregar origen https://github.com/joseunico01/pru.git
+ git push - u origen principal
+
+----------ENVIAR UN REPOSITORIO DE LA LINEA DE COMMANDOS--------------
+git remoto agregar origen https://github.com/joseunico01/pru.git
+ git branch -M main 
+git push -u origin main
+
+
+---------COMO CLONAR UNA RAMA ESPECIFICA DE UN GIT------------------
+#Elegir solo una opcion
+git clone --branch <branchname> <remote-repo-url>
+git clone -b <branchname> <remo

@@ -1,0 +1,17 @@
+___________________________________________________________________________
+###########################################################################
+===========================================================================
+  CONFIGURAR EL PATH Y CAMBIAR DE VERSION DE JAVA
+################################# INICIO ##################################
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+description: configurar
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+1.Intalar los paquetes segun la version q deseemos, pero tipo .deb
+
+sudo dpkg -i "jdk_nombre_version.deb"
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-14/bin/java 1
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-14/bin/javac 1
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+  
+############################################################### FIN #######

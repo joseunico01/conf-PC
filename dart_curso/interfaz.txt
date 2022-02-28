@@ -1,0 +1,49 @@
+######################################
+INTERFAZ
+######################################
+
+#ejemplo1:
+abstract class Vehiculo{
+    String color="";
+    String modelo="";
+    String marca="";
+
+    void miCombustible();
+}
+abstract class EsTransporte{
+    void QueTransporteSoy();
+}
+
+//Para implementar una clase abstract en una clase, tambien se debe de importar todos sus metodos
+class Camion extends Vehiculo implements EsTransporte{
+    @override
+        void miCombustible(){
+            print("Diesel");
+        }
+
+    @override
+        void QueTransporteSoy(){
+            print("Soy un Camion");
+        }
+}
+
+class Auto extends Vehiculo{
+
+    @override
+        void miCombustible(){
+            print("Gasolina");
+        }
+}
+class Moto extends Vehiculo{
+
+    @override
+        void miCombustible(){
+            print("Gasolina");
+        }
+}
+
+void main(){
+    EsTransporte camion=new Camion();
+    camion.QueTransporteSoy();
+}
+

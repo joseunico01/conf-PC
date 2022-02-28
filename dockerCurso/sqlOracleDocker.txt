@@ -1,0 +1,31 @@
+___________________________________________________________________________
+###########################################################################
+===========================================================================
+ Acceder a nuestro contenedor de docker - Oracle 
+################################# INICIO ##################################
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+description: (Ojo esto fue como ingrese, al incio mi primera vez)
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+1.Acceder por los comandos
+docker exec -it --user=oracle myxedb bash
+. oraenv
+XEsqlplus sys@XEPDB1 as sysdba
+
+2.Nos pedira nuestra contraseña
+[password] oracle
+############################################################### FIN #######
+
+
+___________________________________________________________________________
+###########################################################################
+===========================================================================
+  PARA VOLVER A USAR MI CONTENEDOR CON MI INFORMACION GUARDADA
+################################# INICIO ##################################
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ 1.Debemos de ver la imagen q se ejecuto con anterioridad
+ docker ps -a
+
+ 2.Ejecutar ese container, ojo es importante no cerrar la terminal donde 
+    ejecutaremos este codigo, para q se mantenga activo el servicio
+ docker start -i "CONTAINER_ID"
+############################################################### FIN #######

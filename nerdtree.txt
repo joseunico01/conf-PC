@@ -1,0 +1,25 @@
+
+
+#CONFIGURACION DE NERDTree
+
+o........Abrir archivos, directorios y marcadores.......................|NERDTree-o|
+go.......Abre el archivo seleccionado, pero deja el cursor en el NERDTree......|NERDTree-go|
+t........Abrir el nodo/marcador seleccionado en una nueva pestaña.........|NERDTree-t|
+T........Igual que 't' pero mantén el foco en la pestaña actual..........|NERDTree-T|
+i........Abrir el archivo seleccionado en una ventana dividida.........|NERDTree-i|
+gi....... Igual que i, pero deja el cursor en NERDTree...........|NERDTree-gi|
+s........Abrir archivo seleccionado en un nuevo vsplit.........................|NERDTree-s|
+gs.......Igual que s, pero deje el cursor en NERDTree...........|NERDTree-gs|
+O........Abrir recursivamente el directorio seleccionado....................|NERDTree-O|
+p........Saltar al padre del nodo actual..................................|NERDTree-p|
+K........ Saltar dentro de los directorios en la profundidad actual del árbol.......|NERDTree-K|
+J........ Saltar dentro de los directorios a la profundidad actual del árbol...|NERDTree-J|
+C........Cambiar la raíz del árbol al directorio seleccionado.............|NERDTree-C|
+u........Mover la raíz del árbol un directorio hacia arriba.........................|NERDTree-u|
+U........Igual que 'u' excepto que el antiguo nodo raíz se deja abierto..........|NERDTree-U|
+r........Actualiza recursivamente el directorio actual..................|NERDTree-r|
+R........Actualiza recursivamente la raíz actual.......................|NERDTree-R|
+m........Mostrar el menú NERDTree.................................|NERDTree- m|
+cd.......Cambia el CWD al directorio del nodo seleccionado......|NERDTree-cd|
+I........Alternar si se muestran los archivos ocultos.........|NERDTree-I|
+q........Cerrar la ventana NERDTree.................................|NERDTree- q|

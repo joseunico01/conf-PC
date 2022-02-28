@@ -1,0 +1,11 @@
+#1er paso: instalar php8.0
+
+#2do paso: instalar composer
+
+#3er paso: instalar el suiguiente codigo entes de crear un proy en laravel
+sudo apt install phpunit
+
+#4to paso: instalar segun la doc de laravel-composer
+
+#5to paso: simplemente ejecutar para lograr ver lo q se puede usar con artisan
+php artisan

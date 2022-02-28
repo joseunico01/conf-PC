@@ -1,0 +1,14 @@
+#AYUDA XD
+#como descomprimir archivos .zip
+unzip "nombre_archivo"
+
+#como descomprimir archivos .xz con.xz .txz
+tar -xvf "nombre_archivo"
+
+-----------------------------------------------------------------
+#descomprimir RAR
+unrar x "nombre_archivo"
+-----------------------------------------------------------------
+#para comprimir un RAR
+rar a 'nombre_fichero_comprimido.rar' 'nombre_fichero_a_comprimir'
+-----------------------------------------------------------------
