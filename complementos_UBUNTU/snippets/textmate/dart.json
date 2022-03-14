@@ -92,6 +92,30 @@
       "}"
     ]
   },
+  "Flutter mateaApp": {
+    "prefix": "mateapp",
+    "description": "Insert struct basic",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "void main()=> runApp(MyApp());",
+      "",
+      "class MyApp extends StatelessWidget {",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return MaterialApp(",
+      "       debugShowCheckedModeBanner: false,",
+      "       title: 'Material App',",
+      "       initialRoute: '$1',",
+      "       routes: {",
+      "         '$1': (BuildContext context)=> $2(),",
+      "     },",
+      "    );",
+      "  }",
+      "}"
+    ]
+  },
   "Flutter_SnackBar": {
     "prefix": "showSnackBar",
     "description": "Insert show Snackbar",
