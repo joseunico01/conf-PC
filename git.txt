@@ -56,7 +56,7 @@ git agregar README.md
 git commit -m "primer compromiso" 
 git branch -M main 
 git remote agregar origen https://github.com/joseunico01/pru.git
- git push - u origen principal
+ git push - u origin principal
 
 ----------ENVIAR UN REPOSITORIO DE LA LINEA DE COMMANDOS--------------
 git remoto agregar origen https://github.com/joseunico01/pru.git
