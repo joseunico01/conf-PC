@@ -128,6 +128,7 @@ Plug 'tpope/vim-surround'  "Para envolver una palabra en un signo, corchete, par
 "Para dar iconos a nuestros nvim
 "Para reemplazar alguna palabra,  :%s/palbra antigua/palabra nueva
 Plug 'tmhedberg/simpylfold' "plegado de codigo
+Plug 'ryanoasis/vim-devicons'
 
 
 "CONFIGURACION FLUTTER
