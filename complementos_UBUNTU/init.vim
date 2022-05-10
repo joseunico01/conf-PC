@@ -96,9 +96,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'mattn/emmet-vim'     "emmet para diseño web
 "Plug 'mfussenegger/nvim-jdtls'
 Plug 'docteurklein/php-getter-setter.vim' "getter-setter php
+Plug 'dinduks/vim-java-get-set' 
 "Para invocar getter and setter, primero subrayamos lo q queremos insertar
-":InsertGetterSetter
-Plug 'dinduks/vim-java-get-set' "Para java
+"Para java // :InsertGetterSetter
 Plug 'aca/completion-tabnine', { 'do': 'version=3.1.9 ./install.sh' }
 
 "TERMINAL
@@ -517,6 +517,12 @@ let g:terminator_runfile_map = {
             \ "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
             \ }
 
+"<leader>rf	  ///Ejecuta su archivo actual 
+"<leader>or   ///Abre una respuesta
+"<leader>ot   ///Abre (o reabre) una ventana de terminal
+"<leader>rt   ///Ejecuta su archivo actual (o selección visual) en la terminal
+"<leader>rs   ///Detiene el trabajo en ejecución en el búfer de salida
+"<leader>rm	  ///Modifica el comando a través de la línea de comando antes de ejecutarlo en el búfer de salida
 
 "#######################################
 "CONFIGURACION PARA FLUTTER
@@ -566,20 +572,17 @@ nnoremap <leader>fe :FlutterEmulators<cr>
 "#######################################
 "GETTER SETTER- JAVA
 "#######################################
+
   let b:javagetset_getterTemplate =
     \ "\n" .
-    \ "/*" .
-    \ "  Get %varname%" .
-    \ " */\n" .
+    \ "/*  Get %varname% */\n" .
     \ "%modifiers% %type% %funcname%() {\n" .
     \ "    return %varname%;\n" .
     \ "}"
 
   let b:javagetset_setterTemplate =
   \ "\n" .
-  \ "/*" .
-  \ "  Set %varname%" .
-  \ " */\n" .
+  \ "/*  Set %varname% */\n" .
   \ "%modifiers% void %funcname%(%type% %varname%) {\n" .
   \ "    this.%varname% = %varname%;\n" .
   \ "}"
