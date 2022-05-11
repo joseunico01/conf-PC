@@ -97,6 +97,7 @@ alias runflutter='flutter run --no-sound-null-safety'
 alias vim='nvim'
 alias tree='tree -L 2'
 alias py='python3'
+alias designer='./venv/lib/python3.9/site-packages/qt6_applications/Qt/bin/designer'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -135,3 +136,4 @@ git_branch() {
 export PS1='\[\e[0;1;2;38;5;172m\]\u\[\e[0;1;2;38;5;39m\]@\[\e[0;1;2;38;5;39m\]\H\[\e[0;1;38;5;172m\]:\[\e[0;1;38;5;40m\]\w \[\e[0;1;38;5;172m\]$(git_branch)$\[\e[0m\]'
 unset color_prompt force_color_prompt
 
+# PIP --VERSION

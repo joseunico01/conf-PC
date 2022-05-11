@@ -1,0 +1,74 @@
+DATO: pyqt6-tools solo sirve en python 3.9, en 3.10 tiene errrores
+verificar: 
+python --version
+pip --version
+
+
+PARA CAMBIAR LA OPCION DE PYTHON ACTUAL
+(PRIORIDAD-NO HACERLO, MEJOR CREA UN ENTORNO VIRTUAL)
+1-Instalar python 3.9, luego cambiar al q se usara
+  update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+
+
+CAMBIAR LA VERSION POR DEFECTO DE PYTHON DE (PYTHON --VERSION)
+(OPCIONAL)
+1-Listamos las versiones de python
+  ls /usr/bin/python3*
+2-Elegimos q python usaremos por defecto
+  alias python="/usr/bin/python3.9"
+
+
+CAMBIAR LA VERSION POR DEFECTO DE PYTHON DE (PIP --VERSION)
+(OPCIONAL)
+1- Verificar donde esta instalado
+  which pip
+  ls /home/jose/.local/bin/pip*
+  alias pip="pip3.9"
+
+
+ERROR : ModuleNotFoundError: No module named 'apt_pkg'
+apt-get remove  python3-apt
+apt-get install python3-apt
+
+
+INSTALAR PyQt6 EN UBUNTU
+Ver la DOCUMENTACION PyQt6, https://pypi.org/project/pyqt6-tools/
+1-Instalar el aplicativo
+  pip install PyQt6
+  pip install pyqt6-tools
+2- Ejecutar el PyQt6
+  pyqt6-tools designer
+3- En .bashrc
+  alias designer='pyqt6-tools designer'
+
+
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+INSTALAR PyQt6 EN UBUNTU EN UN ENTORNO VIRTUAL
+1 -python 3.9
+  sudo apt install python3.9-venv
+  python3.9 -m venv venv
+  source venv/bin/activate
+
+2 -Instalar el aplicativo
+  pip install PyQt6
+  pip install pyqt6-tools
+3 -Ejecutar en l siguiente direccion el QT designer, copiarlo en el .bashrc
+  alias designer='./venv/lib/python3.9/site-packages/qt6_applications/Qt/bin/designer'
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+
+INSTALAR ENTORNOS VIRTUALES
+-python 3.8
+  sudo apt install python3-venv
+  python3 -m venv venv
+
+-python 3.9
+  sudo apt install python3.9-venv
+  python3.9 -m venv venv
+
+-Activar
+  source venv/bin/activate
+-Desactivar
+  deactivate
+
