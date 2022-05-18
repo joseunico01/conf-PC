@@ -1,0 +1,4 @@
+Instalar este plugin para ejecutar o abrir cualquier
+programa q tenga instalado en ubuntu
+
+Ulauncher
