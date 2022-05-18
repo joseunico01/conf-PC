@@ -1,0 +1,50 @@
+___________________________________________________________________________
+###########################################################################
+      INSTALAR MONGODB COMMUNITY EDITION
+################################# INICIO ##################################
+description: Para shell o usarlo en terminal
+1- Guia de instalacion "mongodb manual install linux"
+ https://www.mongodb.com/docs/manual/administration/install-on-linux/
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: ERROR EN 22.04, POR Q TODAVIA NO HAY UNA ACTUALIZACION
+      RESPUESTA: ASK UBUNTU
+MongoDb has no official build for ubuntu 22.04 at the moment.
+Ubuntu 22.04 has upgraded libssl to 3, and does not propose libssl1.1
+You can force the installation of libssl1.1 by adding the ubuntu 21.10 source :
+      CODIGO RESPUESTA:
+echo "deb http://security.ubuntu.com/ubuntu impish-security main" | sudo tee /etc/apt/sources.list.d/impish-security.list
+sudo apt-get update
+sudo apt-get install libssl1.1
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: COMPROBAR EN TERMINAL
+      ESTADOS MONGODB:
+sudo systemctl start mongod
+sudo systemctl status mongod
+sudo systemctl stop mongod
+
+      VERRIFICAR MONGODB:
+mongod   #para verificar el servidor de mongodb(opcional)
+mongo    #para entrar al sql de mongodb
+############################################################## FIN ########
+
+___________________________________________________________________________
+###########################################################################
+    INSTALAR MONGODB COMPASS
+################################# INICIO ##################################
+DESCRIPTION: INSTALAR EN UBUNTU
+1- Instalar el deb para ubuntu
+2- sudo dpkg -i nombre_mongodb.deb
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: CONECTAR EL LOCALHOST EN MONGODB COMPASS
+1- EJecutar en la terminal mongo
+2- Copiar el localhost q nos muestre el resultado(Primero se activa
+el servidor de mongodb para no tener error)
+  mongod    #para verificar q se este ejecutando el servidor de mongodb
+  luego entrar a mongodb compass
+2- Ejemplo de localhost: 
+mongodb://127.0.0.1:27017/
+
+############################################################## FIN ########
