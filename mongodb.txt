@@ -8,6 +8,7 @@ description: Para shell o usarlo en terminal
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 DESCRIPTION: ERROR EN 22.04, POR Q TODAVIA NO HAY UNA ACTUALIZACION
+
       RESPUESTA: ASK UBUNTU
 MongoDb has no official build for ubuntu 22.04 at the moment.
 Ubuntu 22.04 has upgraded libssl to 3, and does not propose libssl1.1
@@ -19,14 +20,37 @@ sudo apt-get install libssl1.1
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 DESCRIPTION: COMPROBAR EN TERMINAL
+
       ESTADOS MONGODB:
 sudo systemctl start mongod
 sudo systemctl status mongod
 sudo systemctl stop mongod
-
       VERRIFICAR MONGODB:
 mongod   #para verificar el servidor de mongodb(opcional)
 mongo    #para entrar al sql de mongodb
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: ERROR AL INICIAR
+EJEMPLO: AL INICIAR PRIMERA VEZ FUNCIONA, REINICIO Y NO FUNCIONA
+sudo systemctl status mongod(error en terminal)
+     Loaded: loaded (/lib/systemd/system/mongod.service; enabled; vendor preset: enabled)
+     Active: failed (Result: exit-code) since Sat 2021-07-03 14:24:44 IST; 15min ago
+       Docs: https://docs.mongodb.org/manual
+    Process: 14963 ExecStart=/usr/bin/mongod --config /etc/mongod.conf (code=exited, status=1/FAILURE)
+   Main PID: 14963 (code=exited, status=1/FAILURE)
+
+1- Se corrige en el configuarcion de mongod
+vim /etc/mongod.conf
+2- Por defecto viene asi, lo cambiamos
+  #path: /var/log/mongodb/mongod.log 
+  path: /var/lib/mongodb/mongod.log
+3- Iniciamos
+sudo systemctl start mongod
+sudo systemctl status mongod
+mongod
+mongo
+4- Abrimos mongod compass
+
 ############################################################## FIN ########
 
 ___________________________________________________________________________
