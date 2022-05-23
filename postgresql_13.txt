@@ -1,0 +1,212 @@
+___________________________________________________________________________
+###########################################################################
+ INSTALL POSTGRESQL 13
+################################# INICIO ##################################
+DESCRIPTION: INSTALL POSTGRESQL EN UBUNTU
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+1. Agregar el repository de POSTGRESQL 13 a Ubuntu
+sudo apt update
+sudo apt install curl gpg gnupg2 software-properties-common apt-transport-https lsb-release ca-certificates
+curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
+
+/*
+El repositorio agregado contiene muchos paquetes diferentes, incluidos complementos de terceros. Incluyen:
+-postgresql-cliente
+-posgresql
+-libpq-dev
+-postgresql-servidor-dev
+-paquetes pgadmin
+*/
+
+2. Instale PostgreSQL 13 en Ubuntu 22.04|20.04|18.04
+sudo apt update
+sudo apt install postgresql-13 postgresql-client-13
+systemctl status postgresql@13-main.service
+
+3. Probar la conexión postgresql
+sudo su - postgres
+psql -c "alter user postgres with password 'StrongAdminP@ssw0rd'"
+psql
+#   ejemplo: postgres@jose-Aspire-A315-23:~$ psql -c "alter user postgres with password 'vasquez'"
+#            ALTER ROLE
+  
+/*
+Obtenga detalles de conexión como a continuación.
+$ psql
+psql (13.7 (Ubuntu 13.7-1.pgdg22.04+1))
+Type "help" for help.
+
+postgres=# \conninfo
+You are connected to database "postgres" as user "postgres" via socket in "/var/run/postgresql" at port "5432".
+*/
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: USAR PSQL EN TERMINAL
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# Obtenga detalles de conexión como a continuación.
+postgres=# \conninfo
+You are connected to database "postgres" as user "postgres" via socket in "/var/run/postgresql" at port "5432".
+
+# Vamos a crear una base de datos de prueba y un usuario para ver si funciona.
+postgres=# CREATE DATABASE mytestdb;
+CREATE DATABASE
+postgres=# CREATE USER mytestuser WITH ENCRYPTED PASSWORD 'MyStr0ngP@SS';
+CREATE ROLE
+postgres=# GRANT ALL PRIVILEGES ON DATABASE mytestdb to mytestuser;
+GRANT
+
+# Lista de bases de datos creadas:
+postgres=# \l
+
+#Conectarse a la base de datos:
+postgres-# \c mytestdb
+You are now connected to database "mytestdb" as user "postgres".
+
+# Se pueden usar otras utilidades de PostgreSQL instaladas, como  createuser
+# y  createdb  , para crear bases de datos y usuarios.
+postgres@ubuntu:~$ createuser myuser --password
+Password:
+postgres@ubuntu:~$ createdb mydb -O myuser
+postgres@ubuntu:~$ psql -l
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: CONFIGURAR LA CONEXIÓN REMOTA (OPCIONAL)
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+/*
+La instalación de PostgreSQL 13 en Ubuntu solo acepta conexiones desde localhost.
+En entornos de producción ideales, tendrá un servidor de base de datos central y
+clientes remotos que se conectarán a él, pero, por supuesto, dentro de una  red
+privada  (LAN).
+
+Para habilitar conexiones remotas, edite el archivo de configuración de PostgreSQL:
+*/
+
+$ sudo nvim /etc/postgresql/13/main/postgresql.conf 
+
+# Descomente la línea  59  y cambie la dirección de escucha para aceptar conexiones
+# dentro de sus redes.
+
+# Listen on all interfaces
+listen_addresses = '*'
+
+# Listen on specified private IP address
+listen_addresses = '192.168.10.11'
+
+# También configure PostgreSQL para aceptar conexiones remotas de hosts permitidos.
+
+$ sudo nano /etc/postgresql/13/main/pg_hba.conf
+
+# Accept from anywhere
+host all all 0.0.0.0/0 md5
+
+# Accept from trusted subnet
+host all all 10.10.10.0/24 md5
+
+# Después del cambio, reinicie el servicio postgresql.
+sudo systemctl restart postgresql
+
+# Confirmar direcciones de escucha.
+# netstat  -tunelp | grep 5432
+tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN      111        112837     11143/postgres      
+tcp6       0      0 :::5432                 :::*        
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: HOW TO INSTALL PGADMIN 4 ON UBUNTU 22.04|20.04|18.04
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+1-  Agregue el repositorio pgAdmin4 a Ubuntu 22.04|20.04|18.04
+curl  -fsSL https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/pgadmin.gpg
+sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list'
+
+# Verificar
+cat /etc/apt/sources.list.d/pgadmin4.list
+# deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/bullseye pgadmin4 main
+
+2- Instale pgAdmin4 en Ubuntu 22.04|20.04|18.04
+sudo apt update
+sudo apt install pgadmin4
+
+# Activar el Apache
+systemctl status apache2
+
+3- Configurar el servidor web Apache para pgAdmin4
+sudo /usr/pgadmin4/bin/setup-web.sh
+
+# Esto requerirá que ingrese la dirección de correo electrónico del usuario pgadmin4 y establezca la contraseña:
+/*
+
+Setting up pgAdmin 4 in web mode on a Debian based platform...
+Creating configuration database...
+NOTE: Configuring authentication for SERVER mode.
+
+Enter the email address and password to use for the initial pgAdmin user account:
+
+Email address: <input-email-address>
+Password: <input-password>
+Retype password: <Reenter-password>
+pgAdmin 4 - Application Initialisation
+======================================
+
+Creating storage and log directories...
+
+*/
+
+4- Acceda a la interfaz web de pgAdmin 4
+sudo ufw allow http
+sudo ufw allow https
+
+# Abrir en el navegador
+http://[ServerIP_or_domain]/pgadmin4
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: systemctl status apache2 (FAILED)
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+$ systemctl status apache2
+× apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor prese>
+     Active: failed (Result: exit-code) since Sun 2022-05-22 22:09:14 -05; 14mi>
+       Docs: https://httpd.apache.org/docs/2.4/
+May 22 22:09:14 jose-Aspire-A315-23 systemd[1]: apache2.service: FAILED with re>
+May 22 22:09:14 jose-Aspire-A315-23 systemd[1]: FAILED to start The Apache HTTP>
+
+1 SOLUCION: DEBEMOS DE APAGAR APACHE(PHPMYADMIN) Y MYSQL
+
+# apagar mysql
+service mysql stop
+service mysql status
+
+# Apagar phpmyadmin
+sudo /opt/lampp/lampp stop
+sudo /opt/lampp/lampp status
+
+2 SOLUCION: VER QUE PROGRAMA OCUPA EN MI PUERTO 80
+sudo apt install net-tools
+sudo netstat -antup | grep 80
+
+# Verificar en el puerto 80, si esta ecuchando
+<Your IP>:80
+
+# Para detener el programa 
+sudo systemctl stop program-name
+
+#Para eliminar el programa
+sudo killall -9 program-name
+
+3 SOLUCION: REINSTALAR APACHE2
+
+sudo apt-get --purge remove apache2
+sudo apt-get autoremove
+/*
+# Eliminar los archivos que sean .conf la carpeta
+# /etc/sites-available
+rm example.com.conf
+*/
+sudo apt-get install apache2
+sudo ufw allow 'Apache'
+sudo systemctl status apache2
+
+
+
+############################################################## FIN ########

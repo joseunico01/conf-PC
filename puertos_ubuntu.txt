@@ -1,0 +1,67 @@
+___________________________________________________________________________
+###########################################################################
+ ESTADO DE LOS PUERTOS_UBUNTU
+ APACHE2-FAILED
+################################# INICIO ##################################
+DESCRIPTION: DETENER O ELIMINAR UN PUERTO EN UBUNTU
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+1- Instalamos y ejecutamos
+sudo apt install net-tools
+sudo netstat -antup | grep 80
+
+# Para detener el programa 
+sudo systemctl stop program-name
+
+#Para eliminar el programa
+sudo killall -9 program-name
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: systemctl status apache2 (FAILED)
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+$ systemctl status apache2
+× apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor prese>
+     Active: failed (Result: exit-code) since Sun 2022-05-22 22:09:14 -05; 14mi>
+       Docs: https://httpd.apache.org/docs/2.4/
+May 22 22:09:14 jose-Aspire-A315-23 systemd[1]: apache2.service: FAILED with re>
+May 22 22:09:14 jose-Aspire-A315-23 systemd[1]: FAILED to start The Apache HTTP>
+
+1 SOLUCION: DEBEMOS DE APAGAR APACHE(PHPMYADMIN) Y MYSQL
+
+# apagar mysql
+service mysql stop
+service mysql status
+
+# Apagar phpmyadmin
+sudo /opt/lampp/lampp stop
+sudo /opt/lampp/lampp status
+
+2 SOLUCION: VER QUE PROGRAMA OCUPA EN MI PUERTO 80
+sudo apt install net-tools
+sudo netstat -antup | grep 80
+
+# Verificar en el puerto 80, si esta ecuchando
+<Your IP>:80
+
+# Para detener el programa 
+sudo systemctl stop program-name
+
+#Para eliminar el programa
+sudo killall -9 program-name
+
+3 SOLUCION: REINSTALAR APACHE2
+
+sudo apt-get --purge remove apache2
+sudo apt-get autoremove
+/*
+# Eliminar los archivos que sean .conf la carpeta
+# /etc/sites-available
+rm example.com.conf
+*/
+sudo apt-get install apache2
+sudo ufw allow 'Apache'
+sudo systemctl status apache2
+
+
+############################################################## FIN ########
