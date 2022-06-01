@@ -1,0 +1,35 @@
+___________________________________________________________________________
+###########################################################################
+ CONFIGURAR INTELLIJ_IDEA AND PYCHARM
+################################# INICIO ##################################
+description: CONFIGURAR TERMINAL TAMAÑO
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+1-Buscamos y luego marcamos Use console font of the default
+settings: console font
+Size: 15.0  Line height 1.0 
+
+2- Aumentar el tamaño con ctrl + y -
+settings: Editor>General 
+Marcamos Chamge font size with Ctrl + Mouse in:
+
+3- Instamos los plugins
+vim
+one dark
+material icon atom
+
+luego configuramos el one dark
+settings: Aparence>Aparence>Elegimos el tema de fondo del aplicativo
+settings: Editor>Color Scheme>ELegimos nuestro tema
+
+############################################################## FIN ########
+
+
+___________________________________________________________________________
+###########################################################################
+ CONFIGURAR EL ANDROID STUDIO
+################################# INICIO ##################################
+description: CONFIGURAR EL SDK LALEST
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+1- 
+
+############################################################## FIN ########
