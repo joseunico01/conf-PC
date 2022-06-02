@@ -1,0 +1,87 @@
+___________________________________________________________________________
+###########################################################################
+ ICONOS DESKTOP
+################################# INICIO ##################################
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: .DESKTOP
+
+1- .desktop descargados de SNAP
+/var/lib/snapd/desktop/applications/intellij-idea-ultimate_intellij-idea-ultimate.desktop
+
+2- .desktop descargados e instalados por atp o dpkg
+/usr/share/applications/
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: EJEMPLOS
+
+#SNAP
+[Desktop Entry]
+X-SnapInstanceName=intellij-idea-ultimate
+Version=1.0
+Type=Application
+Name=IntelliJ IDEA Ultimate Edition
+Icon=/snap/intellij-idea-ultimate/357/bin/idea.png
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/intellij-idea-ultimate_intellij-idea-ultimate.desktop /snap/bin/intellij-idea-ultimate %f
+Comment=Capable and Ergonomic IDE for JVM
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=jetbrains-idea
+StartupNotify=true
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# por defecto
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=dbeaver-ce
+GenericName=Universal Database Manager
+Comment=Universal Database Manager and SQL Client.
+Path=/usr/share/dbeaver-ce/
+Exec=/usr/share/dbeaver-ce/dbeaver
+Icon=/usr/share/dbeaver-ce/dbeaver.png
+Categories=IDE;Development
+StartupWMClass=DBeaver
+StartupNotify=true
+Keywords=Database;SQL;IDE;JDBC;ODBC;MySQL;PostgreSQL;Oracle;DB2;MariaDB
+MimeType=application/sql
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#en opt 
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=Genymotion
+GenericName=Android Emulator
+GenericName[fr]=Emulateur Android
+Icon=/opt/genymobile/genymotion/icons/icon.png
+Exec=/opt/genymobile/genymotion/genymotion
+Categories=Development;Emulator;
+
+[Desktop Entry]
+Name=SpringSource Tool Suite
+Comment=Spring Tool Suite
+Exec=/opt/sts-4.14.1.RELEASE/SpringToolSuite4
+Icon=/opt/sts-4.14.1.RELEASE/icon.xpm
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Development;IDE;Java;
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#eclipse
+[Desktop Entry]
+Name=Eclipse IDE
+Comment=Eclipse IDE
+Exec=/home/jose/eclipse/jee-2022-03/eclipse/eclipse
+Icon=/home/jose/eclipse/jee-2022-03/eclipse/icon.xpm
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Development;IDE;Java;
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+############################################################## FIN ########
