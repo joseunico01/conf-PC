@@ -4,8 +4,7 @@ ___________________________________________________________________________
   CONFIGURAR EL PATH Y CAMBIAR DE VERSION DE JAVA
 ################################# INICIO ##################################
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-description: configurar
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: CONFIGURAR AND INSTALL JDK 11 AND 17
 1.Intalar los paquetes segun la version q deseemos, pero tipo .deb
 
 sudo dpkg -i "jdk_nombre_version.deb"
@@ -13,5 +12,20 @@ sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-14/bin/ja
 sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-14/bin/javac 1
 sudo update-alternatives --config java
 sudo update-alternatives --config javac
-  
+java --version
+javac --version
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: CONFIGURAR AND INSTALL JDK 8
+1- Download jdk 8, descomprimir 
+tar -xzvf jdk_8.tar.gz
+
+2- Mover la carpeta a /opt/
+3- Confgurar para q lo reconosca
+sudo update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_202/bin/java 3
+sudo update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_202/bin/javac 3
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+java -version
+javac -version
+
 ############################################################### FIN #######
