@@ -20,7 +20,8 @@ DESCRIPTION: CONFIGURAR AND INSTALL JDK 8
 tar -xzvf jdk_8.tar.gz
 
 2- Mover la carpeta a /opt/
-3- Confgurar para q lo reconosca
+3- sudo chmod -R 777 /opt/jdk1.8
+4- Confgurar para q lo reconosca
 sudo update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_202/bin/java 3
 sudo update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_202/bin/javac 3
 sudo update-alternatives --config java
@@ -29,3 +30,66 @@ java -version
 javac -version
 
 ############################################################### FIN #######
+
+
+___________________________________________________________________________
+###########################################################################
+ CONFIGURAR JAVA-GENERAL-MAVEN
+################################# INICIO ##################################
+
+DESCRIPTION: CONFIGURAR JAVA.SH
+1- Configurar ~/.profile
+# CONFIGURACION DE JAVA
+export JAVA_HOME=/usr/lib/jvm/jdk-11
+#export JAVA_HOME=/opt/jdk1.8.0_202
+#export JAVA_HOME=/usr/lib/jvm/jdk-17
+export PATH=$JAVA_HOME/bin:$PATH
+
+2- Creamos el archivo en /etc/profile.d/
+sudo nvim /etc/profile.d/java.sh
+----
+JAVA_HOME=/usr/lib/jvm/jdk-11
+#JAVA_HOME=/usr/lib/jvm/jdk-17
+#JAVA_HOME=/opt/jdk1.8.0_202
+export JAVA_HOME
+PATH=${JAVA_HOME}/bin:${PATH}
+export PATH
+JRE_HOME=/usr/lib/jvm/jre
+export JRE_HOME
+JAVA_OPTS="-XX:+AggressiveOpts -Xms256m -Xmx512m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
+export JAVA_OPTS
+----
+
+3- Damos los permisos
+sudo chmod +x /etc/profile.d/java.sh
+
+4- verificamos q este en comentario la version de java q no use
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: INSTALL MAVEN
+GUIA: https://linuxize.com/post/how-to-install-apache-maven-on-ubuntu-20-04/
+
+1-  Descargar maven de su pagina oficial la extension, 
+    Buscamos: maven2 dowload y descargamos apache-maven-3.8.5-bin.tar.gz
+
+2- sudo tar xf ~/Downloads/apache-maven-3.8.5-bin.tar.gz -C /opt
+
+3- sudo ln -s /opt/apache-maven-3.8.5 /opt/maven
+
+4- sudo nvim /etc/profile.d/maven.sh
+
+----
+export JAVA_HOME=/usr/lib/jvm/jdk-11
+#export JAVA_HOME=/usr/lib/jvm/jdk-17
+#export JAVA_HOME=/opt/jdk1.8.0_202
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+----
+
+5- sudo chmod +x /etc/profile.d/maven.sh
+    source /etc/profile.d/maven.sh
+
+6- mvn -version
+
+############################################################## FIN ########
