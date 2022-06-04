@@ -117,7 +117,7 @@ mvn -B archetype:generate \
 1ER FORMA:
 1 - creamos un java normal, no un web
 ----
-mvn archetype:create \
+mvn archetype:generate \
 -DgroupId=chuidiang.ejemplos \
 -DartifactId=EjemploMaven
 ----
@@ -155,5 +155,41 @@ local de maven
 */
 mvn eclipse:eclipse
 mvn idea:idea
+
+
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION : 2DA FORMA
+1.-Creando un filtro para la creación del archetype
+mvn archetype:generate -Dfilter=maven-archetype-quickstart
+# (ENTER)
+# (8)
+
+2- Configuracion de nuestro proyecto
+Define value property 'groupId':         (com.example.example)
+Define value property 'artiactId':       (name-proyect)
+Define value property 'version':         (1.0.0)
+Define value property 'package'#(enter): (jar-2da_opcion)
+Pide confirmar si todo esta bien
+Y: :       (Y)
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+RESUMEN DE MAVEN TERMINAL
+# Remueve los .class generados (si existen), descargará las librerías según lo que se haya definido en las dependencias del pom.xml
+$ mvn clean
+
+# Compila nuestro código. De los .java genera los .class.
+$ mvn compile
+
+# Compila las pruebas.
+mvn test-compile
+
+# Ejecuta las pruebas.
+$ mvn test
+
+# Genera los archivos jar o war, según lo que se haya definido en el pom.xml
+$ mvn install
+
+
+
 ############################################################## FIN ########
