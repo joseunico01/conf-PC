@@ -93,7 +93,7 @@ export PATH=${M2_HOME}/bin:${PATH}
 6- mvn -version
 
 7- Agregamos en ~/.profile
-alias mvn='source /etc/profile.d/maven.sh && mvn -version'
+alias maven='source /etc/profile.d/maven.sh && mvn -version'
 
 /* 
 DATO: siempre hay q source para q funcione, por esto agregamos al .profile
@@ -101,4 +101,59 @@ source /etc/profile.d/maven.sh
 mvn -version
 */
 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: USO DE MAVEN POR TERMINAL
+guia: http://www.chuidiang.org/java/herramientas/maven.php
+#EXAMPLE GENERAL
+Abrir una terminal en la carpeta y ejecutar:
+  *Reemplazar lucasmufato por su nombre y apellido
+----
+mvn -B archetype:generate \
+-DarchetypeGroupId=org.apache.maven.archetypes \
+-DgroupId=com.lucasmufato.prueba \
+-DartifactId=my-prueba
+----
+
+1ER FORMA:
+1 - creamos un java normal, no un web
+----
+mvn archetype:create \
+-DgroupId=chuidiang.ejemplos \
+-DartifactId=EjemploMaven
+----
+# ESTRUCTURA
+EjemploMaven
++---src
+¦    +---main
+¦    ¦   +---java         //Para nuestros fuentes
+¦    ¦       +---chuidiang
+¦    ¦           +---ejemplos
+¦    ¦               +---App.java
+¦    +---test
+¦        +---java         //Para test de Junit
+¦            +---chuidiang
+¦                +---ejemplos
+¦                    +---AppTest.java
++---pom.xml
+
+# COMPILAR
+#Una vez que tenemos todo, podemos compiliar de forma sencilla. 
+#Basta ponerse en el directorio donde está el fichero pom.xml y escribir
+$ mvn compile
+
+#GENERAR JAR
+$ mvn package
+#Esto primero compilará si es necesario, pasará las clases de test de JUnit 
+#y si no hay fallos, meterá en el directorio target nuestro jar,
+#que por defecto tendrá un nombre tan feo como este
+EjemploMaven-1.0-SNAPSHOT.jar
+
+#INTEGRACION CON LOS IDE
+/*
+Debemos de definir una variable M2_REPO apuntando a nuestro repositorio
+local de maven
+*/
+mvn eclipse:eclipse
+mvn idea:idea
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ############################################################## FIN ########
