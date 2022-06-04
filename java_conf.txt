@@ -92,4 +92,13 @@ export PATH=${M2_HOME}/bin:${PATH}
 
 6- mvn -version
 
+7- Agregamos en ~/.profile
+alias mvn='source /etc/profile.d/maven.sh && mvn -version'
+
+/* 
+DATO: siempre hay q source para q funcione, por esto agregamos al .profile
+source /etc/profile.d/maven.sh
+mvn -version
+*/
+
 ############################################################## FIN ########

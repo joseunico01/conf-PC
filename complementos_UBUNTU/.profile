@@ -38,3 +38,8 @@ export PATH="$PATH:$HOME/development/flutter/bin/cache/dart-sdk/bin"
 export PATH=$PATH:/opt/gradle/gradle-7.4.2/bin
 
 
+# CONFIGURACION DE JAVA
+export JAVA_HOME=/usr/lib/jvm/jdk-11
+#export JAVA_HOME=/opt/jdk1.8.0_202
+#export JAVA_HOME=/usr/lib/jvm/jdk-17
+export PATH=$JAVA_HOME/bin:$PATH
