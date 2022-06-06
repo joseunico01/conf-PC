@@ -43,9 +43,26 @@ minimap-linter
 
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-DESCRIPTION: ERROR DE ALGUN PLUGIN O NO QUIERE ABRIR EL PROYECTO
+DESCRIPTION: ERROR
+
+#ERROR DE ALGUN PLUGIN O NO QUIERE ABRIR EL PROYECTO
 #Esta carpeta guarda todos los cambios y contiene el cache
 rm -rf ~/.atom
+
+#ERROR CON LA INSTALACION APM
+apm remove example_error
+
+############################################################## FIN ########
+
+
+___________________________________________________________________________
+###########################################################################
+ USO DE ATOM
+################################# INICIO ##################################
+description: PRIMEROS PASOS
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#Ver o ocultar el panel superior de atom
+Alt
 
 
 ############################################################## FIN ########
