@@ -19,6 +19,9 @@ emmet
 linter-htmlhint
 atom-live-server
 platformio-ide-terminal
+#vim en atom
+vim-mode-plus
+
 
 
 
