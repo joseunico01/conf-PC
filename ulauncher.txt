@@ -1,0 +1,15 @@
+Instalar este plugin para ejecutar o abrir cualquier
+programa q tenga instalado en ubuntu
+
+Ulauncher
+
+#CONFIGURACION PARA WAYLAND
+sudo apt install wmctrl
+
+#Luego configuramos
+Settings > Keyboard
+Customize Shortcuts > Custom Shortcuts > +
+
+name:       ulauncher
+Command:    ulauncher-toggle
+atajo:      Super+R
