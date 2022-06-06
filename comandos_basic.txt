@@ -7,7 +7,47 @@ ls -d */       l -d */       ll -d */
 
 2- Busqueda de archivos
 ls -t *.desktop     l -t *.desktop      ll -t *.desktop
+
+3- Administrador de tareas en ubuntu
+gnome-system-monitor
+
+4- 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+############################################################## FIN ########
+
+___________________________________________________________________________
+###########################################################################
+GLANCES 
+################################# INICIO ##################################
+DESCRIPCION: COMO VER LOS PROCESOS ABIERTOS , USO DE RAM Y CPU LINUX
+#Install
+sudo snap install glances
+
+#Para ejecutar
+$ glances  
+
+#ESTADOS
+Verde: Todo va bien.
+Azul: Precaución.
+Violeta: Advertencia.
+Rojo: Crítico.
+
+COMNADOS BASICOS
+m → Ordenar procesos por MEM%.
+p → Ordenar procesos por nombre.
+c → Ordenar procesos por CPU%.
+d → Mostrar / ocultar disco I / O stats.
+a → Ordenar procesos automáticamente.
+f → Mostrar / ocultar sistema de archivos statshddtemp.
+i → Ordenar procesos por tasa de E / S.
+s → Mostrar / ocultar estadísticas de sensores.
+y → Mostrar / ocultar estadísticas de hddtemp.
+l → Mostrar / ocultar registros.
+n → Mostrar / ocultar estadísticas de red.
+x → Eliminar advertencia y registros críticos.
+h → Mostrar / ocultar pantalla de ayuda.
+q → Salir.
+w → Eliminar registros de advertencia.
 
 
 ############################################################## FIN ########
