@@ -1,0 +1,48 @@
+___________________________________________________________________________
+###########################################################################
+ ATOM
+################################# INICIO ##################################
+DESCRIPTION: INSTALACION Y CONFIGURACION BASICA
+1- Instalamos el ide ATOM, y recien despues instalaremos sus dependencias
+
+#PLUGINS
+file-icons
+minimap
+pigments
+color-picker   #presionar ctrl+atl+c
+highlight-selected
+goto-definition
+todo-show
+atom-beautify
+atom-ternjs
+emmet
+linter-htmlhint
+atom-live-server
+platformio-ide-terminal
+
+
+
+# Linter, para detectar errores
+apm install linter
+#php, json, js, css
+composer global require "squizlabs/php_codesniffer=*"
+apm install linter-phpcs
+apm install linter-php
+apm install linter-jsonlint
+apm install linter-jscs
+apm install linter-csslint
+#xml
+sudo apt-get install libxml2-utils
+apm install linter-xmllint
+
+#Plugin instalarlo del mismo packages
+minimap-linter
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+DESCRIPTION: ERROR DE ALGUN PLUGIN O NO QUIERE ABRIR EL PROYECTO
+#Esta carpeta guarda todos los cambios y contiene el cache
+rm -rf ~/.atom
+
+
+############################################################## FIN ########
