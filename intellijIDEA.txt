@@ -17,6 +17,27 @@ vim
 one dark
 material icon atom
 
+4- Limitamos el tamaño de nuestro ancho del codigo
+para q se idente y se vea ordenado
+settings>code style
+Right margin(columns):  80 #marcamos wrap on typing
+
+5- Install pretier de forma general
+#npm install --save-dev --save-exact prettier
+npm install --global prettier
+settings>Languages & frameworks>Javascript>Libraries>Dowload
+#Buscamos prettier>Dowload and install
+
+settings>Languages & frameworks>Javascript>prettier
+#buscmos prettier package: seleccionamos  .../node_modules/prettier
+
+settings>keymap
+#Buscamos reformat
+#seleccionamos reformat with prettier y elegimos el teclado
+ctrl+s
+
+
+
 luego configuramos el one dark
 settings: Aparence>Aparence>Elegimos el tema de fondo del aplicativo
 settings: Editor>Color Scheme>ELegimos nuestro tema
@@ -31,5 +52,19 @@ ___________________________________________________________________________
 description: CONFIGURAR EL SDK LALEST
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 1- 
+
+############################################################## FIN ########
+
+
+___________________________________________________________________________
+###########################################################################
+ WEBSTROM
+################################# INICIO ##################################
+description: 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+1- Configurar la ejecucion de nuestro proyecto
+settings>Tools>Web Browsers and Preview
+
 
 ############################################################## FIN ########
