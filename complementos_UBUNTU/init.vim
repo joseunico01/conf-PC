@@ -204,8 +204,6 @@ nnoremap <leader>kp :let @*=expand("%")<CR>
 "Crear t
 nnoremap <Leader>t :tabnew <insert>
 
-
-
 "buffers
 map <Leader>bf :Buffers<cr>
 "siguiente buffers y anterior buffer
@@ -217,7 +215,6 @@ nnoremap <Leader>y "+y<CR>
 "Split
 nnoremap <Leader>vs :vsp<CR>
 nnoremap <Leader>sp :sp<CR>
-
 
 
 "Para q las feclas no funcionen
@@ -234,6 +231,15 @@ nnoremap <silent> <down> :resize -5<CR>
 nnoremap <Leader>e :e ~/.config/nvim/init.vim<CR>
 nmap <F5> :source ~/.config/nvim/init.vim<CR>
 vmap <F5> :source ~/.config/nvim/init.vim<CR>
+
+
+"CONFIGURAR HTML IDENTACION
+"Link - https://vi.stackexchange.com/questions/2306/html-syntax-folding-in-vim#comment13471_2333
+"syntax region htmlFold start="<\z(\<\(area\|base\|br\|col\|command\|embed\|hr\|img\|input\|keygen\|link\|meta\|para\|source\|track\|wbr\>\)\@![a-z-]\+\>\)\%(\_s*\_[^/]\?>\|\_s\_[^>]*\_[^>/]>\)" end="</\z1\_s*>" fold transparent keepend extend containedin=htmlHead,htmlH\d
+"VIM
+"~/.vim/after/ftplugin/html.vim
+"NEOVIM
+"~/.config/nvim/after/syntax/html.vim
 
 "Eliminar los comentarios de un archivo
 nnoremap <Leader>d :g/^\s*#/d<CR>
