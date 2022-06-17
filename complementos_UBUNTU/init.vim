@@ -235,6 +235,8 @@ nnoremap <Leader>e :e ~/.config/nvim/init.vim<CR>
 nmap <F5> :source ~/.config/nvim/init.vim<CR>
 vmap <F5> :source ~/.config/nvim/init.vim<CR>
 
+"Eliminar los comentarios de un archivo
+nnoremap <Leader>d :g/^\s*#/d<CR>
 
 
 "Buscamos con 2 letras un palabra en nuestro archivo
