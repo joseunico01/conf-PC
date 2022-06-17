@@ -85,6 +85,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'dhruvasagar/vim-dotoo'
 
 
 "Tmux
@@ -112,6 +113,7 @@ Plug 'majutsushi/tagbar' "Para ver las variables generales de nuestro leng.progr
 "Luego creamos en cd opt/ --el sig.comad-- sudo ctags -R ./
 "Plug 'godlygeek/tabular'
 Plug 'lilydjwg/colorizer' "Color hexadecimal en css
+Plug 'KabbAmine/vCoolor.vim'   "insertar color 
 
 "IDE
 Plug 'terryma/vim-multiple-cursors'
@@ -710,3 +712,19 @@ nmap [h <Plug>(GitGutterPrevHunk)
 let g:gitgutter_max_signs = 500  " default value (Vim < 8.1.0614, Neovim < 0.4.0)
 let g:gitgutter_max_signs = -1   " default value (otherwise)
 
+
+"#######################################
+"TODO COMMENTS
+"#######################################
+let g:dotoo#agenda#files=['~Documents/dotoo-files/*.dotoo']
+let g:dotoo#capture#refile=expand('~Documents/dotoo-files/refile.dotoo')
+
+
+"#######################################
+"VCOLOR 
+"#######################################
+"COLOR HEXAGESIMAL
+"<Alt-C>      #abrir en modo normal e insertar
+"<Alt-R>      #color rgb
+"<Alt-V>      #color hsl 
+"<Alt-W>      #color rgba
