@@ -141,6 +141,7 @@ Plug 'thosakwe/vim-flutter'
 
 "GIT
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -705,8 +706,10 @@ let g:completion_tabnine_sort_by_details=1
 let g:completion_tabnine_max_lines=1000
 
 "#######################################
-"GIT GUTTER
+"GIT GUTTER #muestra la modificacion al costado si hubo en git
 "#######################################
+"terminal digitar:
+"sudo nvim -u NONE -c "helptags vim-gitgutter/doc" -c q
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
 let g:gitgutter_max_signs = 500  " default value (Vim < 8.1.0614, Neovim < 0.4.0)
@@ -728,3 +731,15 @@ let g:dotoo#capture#refile=expand('~Documents/dotoo-files/refile.dotoo')
 "<Alt-R>      #color rgb
 "<Alt-V>      #color hsl 
 "<Alt-W>      #color rgba
+
+
+"#######################################
+"VIM-FUIGITIVE
+"#######################################
+"terminal digitar:
+"sudo nvim -u NONE -c "helptags fugitive/doc" -c q
+"git status    #:G
+"git add       #a
+"para agregar o desagregar a, u#desagregar, s#agregar
+"git commit    #cc
+"git push      #:G push
