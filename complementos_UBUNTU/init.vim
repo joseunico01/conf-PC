@@ -118,6 +118,7 @@ Plug 'majutsushi/tagbar' "Para ver las variables generales de nuestro leng.progr
 "Plug 'godlygeek/tabular'
 Plug 'lilydjwg/colorizer' "Color hexadecimal en css
 Plug 'KabbAmine/vCoolor.vim'   "insertar color 
+Plug 'valloric/matchtagalways'
 
 "IDE
 Plug 'terryma/vim-multiple-cursors'
