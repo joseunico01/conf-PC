@@ -72,6 +72,10 @@ Plug 'joshdick/onedark.vim'
 Plug 'dikiaap/minimalist'
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'tomasr/molokai'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'jnurmine/Zenburn'
+Plug 'rakr/vim-one'
 
 "Busqueda
 Plug 'junegunn/fzf.vim'
@@ -131,6 +135,9 @@ Plug 'tpope/vim-surround'  "Para envolver una palabra en un signo, corchete, par
 "Para reemplazar alguna palabra,  :%s/palbra antigua/palabra nueva
 Plug 'tmhedberg/simpylfold' "plegado de codigo
 Plug 'ryanoasis/vim-devicons'
+Plug 'vim-scripts/TaskList.vim' 
+"todoshow para vim, todo,fixme en mayuscula
+"funciona con <leader> t  #salir q, mantener ventana y volver a pantalla e
 
 
 "CONFIGURACION FLUTTER
@@ -158,10 +165,51 @@ call plug#end()
 "set background=dark
 
 "DRACULA THEME
-colorscheme dracula
+"colorscheme dracula
 
 "Para el plugin majutsushi/tagbar
 "sudo apt install exuberant-ctags
+
+"MOLOKAI THEME
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+"colorscheme molokai
+
+"ONEHALFLIGHT THEME
+"THEME HTML
+"syntax on
+"set t_Co=256
+"set cursorline
+""colorscheme onehalflight
+"colorscheme onehalfdark
+"let g:airline_theme='onehalfdark'
+" COMENTARIOS DE ONEHALFLIGHT
+" lightline
+" let g:lightline = { 'colorscheme': 'onehalfdark' }
+
+"ZERBRUN THEME
+"THEME OSCURO MAS CLARO SI ME CANSE DEL THEME OSCURO
+"colorscheme zenburn
+
+"VIM-ONE THEME
+"THEME ATOM
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+let g:airline_theme='one'
+colorscheme one
+set background=dark   "theme dark
+"set background=light "theme light
+let g:one_allow_italics = 1 " I love italic for comments
+
+
+
 "CTAGS CONFIGURACON
 let g:tagbar_ctags_bin="/usr/bin/ctags"
 
@@ -205,7 +253,8 @@ nnoremap <leader>kp :let @*=expand("%")<CR>
 "map <Leader>h :tabprevious<cr>
 "map <Leader>l :tabnext<cr>
 "Crear t
-nnoremap <Leader>t :tabnew <insert>
+"NO USAREMOS LEADER + t, por q tenemos todoshow usa ese comando
+"nnoremap <Leader>t :tabnew <insert>
 
 "buffers
 map <Leader>bf :Buffers<cr>
