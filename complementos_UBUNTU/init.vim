@@ -16,6 +16,16 @@
 "TERMINAL SALIR DE MODO ESCRITURA DEL
 "ctrl + \ + ctrl + n
 
+"BUSQUEDA PARA DIFERENCIAR MAYUSCULAS DE MINUSCULA, no lo actives
+"set ignorecase smartcase
+
+"BUSCAR 2 PALABRA DIFERENTES EN UNA SOLA BUSQUEDA
+"/hello\|hola
+"/\vhello|hola
+
+"MOVERSE ENTRE PALABRAS
+",,w       /// para moverse hacia delante
+",,b       /// para moverse hacia delante
 
 "PLEGADO DE LINEAS
 "Como plegar          z+a    ///Sirve para plegar y desplegar
@@ -119,11 +129,12 @@ Plug 'majutsushi/tagbar' "Para ver las variables generales de nuestro leng.progr
 Plug 'lilydjwg/colorizer' "Color hexadecimal en css
 Plug 'KabbAmine/vCoolor.vim'   "insertar color 
 Plug 'valloric/matchtagalways'
+Plug 'sbdchd/neoformat'  "prettier javascript
 
 "IDE
 Plug 'terryma/vim-multiple-cursors'
 "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'easymotion/vim-easymotion'  "buscar una palabra en nuestra pagina actual
+Plug 'easymotion/vim-easymotion'  "buscar una palabra en nuestra pagina actual <leader>s +(letra)
 Plug 'Yggdroot/indentLine'              "indentacion
 Plug 'scrooloose/nerdcommenter' "comentarios
 Plug 'jiangmiao/auto-pairs'             "autocompletado de llaves, corchetes, etc
@@ -178,12 +189,12 @@ call plug#end()
 
 "ONEHALFLIGHT THEME
 "THEME HTML
-"syntax on
-"set t_Co=256
-"set cursorline
-""colorscheme onehalflight
-"colorscheme onehalfdark
-"let g:airline_theme='onehalfdark'
+syntax on
+set t_Co=256
+set cursorline
+"colorscheme onehalflight
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
 " COMENTARIOS DE ONEHALFLIGHT
 " lightline
 " let g:lightline = { 'colorscheme': 'onehalfdark' }
@@ -194,21 +205,20 @@ call plug#end()
 
 "VIM-ONE THEME
 "THEME ATOM
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-let g:airline_theme='one'
-colorscheme one
-set background=dark   "theme dark
+"if (empty($TMUX))
+  "if (has("nvim"))
+    ""For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  "endif
+  "if (has("termguicolors"))
+    "set termguicolors
+  "endif
+"endif
+"let g:airline_theme='one'
+"colorscheme one
+"set background=dark   "theme dark
+"let g:one_allow_italics = 1 " I love italic for comments
 "set background=light "theme light
-let g:one_allow_italics = 1 " I love italic for comments
-
 
 
 "CTAGS CONFIGURACON
@@ -604,8 +614,8 @@ nnoremap <leader>fe :FlutterEmulators<cr>
 "#######################################
 "Con los sig. comandos podemos cambiar, y viciversa
 "  g~iw  /// cambia de minuscula a MAYUSCULA
-"  guG   /// cambia toda la linea a minuscula
-"  gU$   /// cambia toda la linea a MAYUSCULA
+"  guG   ///  u  /// cambia toda la linea a minuscula
+"  gU$   ///  U   /// cambia toda la linea a MAYUSCULA
 
 "#######################################
 "GETTER SETTER- PHP
@@ -793,3 +803,19 @@ let g:dotoo#capture#refile=expand('~Documents/dotoo-files/refile.dotoo')
 "para agregar o desagregar a, u#desagregar, s#agregar
 "git commit    #cc
 "git push      #:G push
+
+
+"#######################################
+"JS FORMAT NEOFORMAT, formateador de js, ts, react
+"#######################################
+"link: https://hashrocket.com/blog/posts/writing-prettier-javascript-in-vim
+let g:neoformat_try_formatprg = 1
+augroup NeoformatAutoFormat
+    autocmd!
+    autocmd FileType javascript,typescript,javascript.jsx setlocal formatprg=prettier\
+                                                            \--stdin\
+                                                            \--print-width\ 80\
+                                                            \--single-quote\
+                                                            \--trailing-comma\ es5
+    autocmd BufWritePre *.ts,*.js,*.jsx Neoformat
+augroup END
