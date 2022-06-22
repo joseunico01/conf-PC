@@ -57,8 +57,11 @@ ___________________________________________________________________________
  APT-ADD-REPOSITORY
 ################################# INICIO ##################################
 description: ELIMINACION DE ADD-REPOSITORY
-sudo apt-add-repository -r ppa:repository
+#example
+sudo apt-add-repository -r ppa:repository 
 sudo apt-add-repository -r ppa:flexiondotorg/magnus
+sudo add-apt-repository --remove ppa:mc3man/trusty-media
+
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
