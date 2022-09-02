@@ -34,6 +34,10 @@
 "z+c         ///Para cerrar un pliegue
 "z+m /// z+shift+m ///para cerrar los pliegues
 "CONFIGURACION DE NEOVIM
+
+
+autocmd BufWritePre * :%s/\s\+$//e
+
 set noswapfile
 syntax on
 set mouse=a
@@ -111,7 +115,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'mattn/emmet-vim'     "emmet para diseño web
 "Plug 'mfussenegger/nvim-jdtls'
 Plug 'docteurklein/php-getter-setter.vim' "getter-setter php
-Plug 'dinduks/vim-java-get-set' 
+Plug 'dinduks/vim-java-get-set'
 "Para invocar getter and setter, primero subrayamos lo q queremos insertar
 "Para java // :InsertGetterSetter
 Plug 'aca/completion-tabnine', { 'do': 'version=3.1.9 ./install.sh' }
@@ -127,7 +131,7 @@ Plug 'majutsushi/tagbar' "Para ver las variables generales de nuestro leng.progr
 "Luego creamos en cd opt/ --el sig.comad-- sudo ctags -R ./
 "Plug 'godlygeek/tabular'
 Plug 'lilydjwg/colorizer' "Color hexadecimal en css
-Plug 'KabbAmine/vCoolor.vim'   "insertar color 
+Plug 'KabbAmine/vCoolor.vim'   "insertar color
 Plug 'valloric/matchtagalways'
 Plug 'sbdchd/neoformat'  "prettier javascript
 
@@ -147,14 +151,14 @@ Plug 'tpope/vim-surround'  "Para envolver una palabra en un signo, corchete, par
 "Para reemplazar alguna palabra,  :%s/palbra antigua/palabra nueva
 Plug 'tmhedberg/simpylfold' "plegado de codigo
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-scripts/TaskList.vim' 
+Plug 'vim-scripts/TaskList.vim'
 "todoshow para vim, todo,fixme en mayuscula
 "funciona con <leader> t  #salir q, mantener ventana y volver a pantalla e
 
 
 "CONFIGURACION FLUTTER
 Plug 'dart-lang/dart-vim-plugin' "da resaltado a sintaxis de dart
-"Plug 'natebosch/vim-lsc' 
+"Plug 'natebosch/vim-lsc'
 "Plug 'natebosch/vim-lsc-dart'
 Plug 'thosakwe/vim-flutter'
 
@@ -309,7 +313,7 @@ nnoremap <Leader>d :g/^\s*#/d<CR>
 
 
 "Buscamos con 2 letras un palabra en nuestro archivo
-nmap <Leader>s <Plug>(easymotion-s2) 
+nmap <Leader>s <Plug>(easymotion-s2)
 
 "Ejecutar un archivo javascrip/node
 "nnoremap <Leader>x :!node %<cr>
@@ -390,13 +394,13 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" Haga que <CR> seleccione automáticamente el primer elemento de finalización y notifique a coc.nvim que 
-" formatee al ingresar, <cr> podría ser reasignado por otro complemento vim 
+" Haga que <CR> seleccione automáticamente el primer elemento de finalización y notifique a coc.nvim que
+" formatee al ingresar, <cr> podría ser reasignado por otro complemento vim
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" Use `[g` y `]g` para navegar por los diagnósticos 
-"Utilice `:CocDiagnostics` para obtener todos los diagnósticos del búfer actual en la lista de ubicaciones. 
+" Use `[g` y `]g` para navegar por los diagnósticos
+"Utilice `:CocDiagnostics` para obtener todos los diagnósticos del búfer actual en la lista de ubicaciones.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
@@ -419,7 +423,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Resalte el símbolo y sus referencias cuando mantenga presionado el cursor. 
+" Resalte el símbolo y sus referencias cuando mantenga presionado el cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
@@ -450,8 +454,8 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " Run the Code Lens action on the current line.
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
-" Función de mapa y objetos de texto de clase 
-" NOTA: Requiere la compatibilidad con 'textDocument.documentSymbol' del servidor de idioma. 
+" Función de mapa y objetos de texto de clase
+" NOTA: Requiere la compatibilidad con 'textDocument.documentSymbol' del servidor de idioma.
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
@@ -471,7 +475,7 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
-" " Use CTRL-S para rangos de selección. 
+" " Use CTRL-S para rangos de selección.
 " Requiere '
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
@@ -505,7 +509,7 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " " Realice la acción predeterminada para el elemento anterior.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Reanudar la última lista de coc. 
+" Reanudar la última lista de coc.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 "#######################################
@@ -588,7 +592,7 @@ let g:terminator_runfile_map = {
             \ "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
             \ }
 
-"<leader>rf	  ///Ejecuta su archivo actual 
+"<leader>rf	  ///Ejecuta su archivo actual
 "<leader>or   ///Abre una respuesta
 "<leader>ot   ///Abre (o reabre) una ventana de terminal
 "<leader>rt   ///Ejecuta su archivo actual (o selección visual) en la terminal
@@ -610,7 +614,7 @@ nnoremap <leader>fe :FlutterEmulators<cr>
 "
 
 "#######################################
-"CAMBIAR DE MAYUSCULA A MISNUSCULA 
+"CAMBIAR DE MAYUSCULA A MISNUSCULA
 "#######################################
 "Con los sig. comandos podemos cambiar, y viciversa
 "  g~iw  /// cambia de minuscula a MAYUSCULA
@@ -784,12 +788,12 @@ let g:dotoo#capture#refile=expand('~Documents/dotoo-files/refile.dotoo')
 
 
 "#######################################
-"VCOLOR 
+"VCOLOR
 "#######################################
 "COLOR HEXAGESIMAL
 "<Alt-C>      #abrir en modo normal e insertar
 "<Alt-R>      #color rgb
-"<Alt-V>      #color hsl 
+"<Alt-V>      #color hsl
 "<Alt-W>      #color rgba
 
 
