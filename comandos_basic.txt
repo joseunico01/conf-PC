@@ -12,6 +12,10 @@ ls -t *.desktop     l -t *.desktop      ll -t *.desktop
 gnome-system-monitor
 
 4- 
+
+5- Forzar el cierre de una app en ubuntu
+ps -A
+kill -9 "codigoPID"
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ############################################################## FIN ########
 
