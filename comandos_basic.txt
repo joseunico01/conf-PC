@@ -11,7 +11,7 @@ ls -t *.desktop     l -t *.desktop      ll -t *.desktop
 3- Administrador de tareas en ubuntu
 gnome-system-monitor
 
-4- 
+4-
 
 5- Forzar el cierre de una app en ubuntu
 ps -A
@@ -21,14 +21,14 @@ kill -9 "codigoPID"
 
 ___________________________________________________________________________
 ###########################################################################
-GLANCES 
+GLANCES
 ################################# INICIO ##################################
 DESCRIPCION: COMO VER LOS PROCESOS ABIERTOS , USO DE RAM Y CPU LINUX
 #Install
 sudo snap install glances
 
 #Para ejecutar
-$ glances  
+$ glances
 
 #ESTADOS
 Verde: Todo va bien.
@@ -62,11 +62,34 @@ ___________________________________________________________________________
 ################################# INICIO ##################################
 description: ELIMINACION DE ADD-REPOSITORY
 #example
-sudo apt-add-repository -r ppa:repository 
+sudo apt-add-repository -r ppa:repository
 sudo apt-add-repository -r ppa:flexiondotorg/magnus
 sudo add-apt-repository --remove ppa:mc3man/trusty-media
 
+##ERROR CON REPOSITORY
+#dirigirnos hasta este directorio y eliminar el add-repository q falla
+/etc/apt/sources.list.d
+#sudo rm zeal-developers-ubuntu-ppa-jammy.list
+
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+############################################################## FIN ########
+
+___________________________________________________________________________
+###########################################################################
+ UNITY EN UBUNTU 22.04
+################################# INICIO ##################################
+description:
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#INstalar unity
+sudo apt update
+sudo apt install ubuntu-unity-desktop -y
+#elegir un lightdm,luego ok
+lightdm
+#reinicamos
+reboot
+
 
 
 ############################################################## FIN ########
