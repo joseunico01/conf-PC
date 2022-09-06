@@ -12,12 +12,15 @@ Hello! Here my instruction how to make this thing work on last ubunty Jammy Jell
 
 1) GO TO https://codeberg.org/som/DrawOnYourScreen
 2) Download and decompress or clone the repository ( i used git clone term command)
-3) Extract it somewhere
-4) Rename folder to "draw-on-your-screen@som.codeberg.org"
-5) Copy/Move "draw-on-your-screen@som.codeberg.org" to ~/.local/share/gnome-shell/extensions
-6) Open file metadata.json with any text editor and change last GNOME version string ( it is 40 in file) to 42.0 then save this file.
+3) Extract it pen file metadata.json with any text editor and change last GNOME version string ( it is 40 in file) to 42.0 then save this file.
 7) restart gnome-shell: Xorg -> press Alt+F2 and r , Wayland: restart or re-login 8) Enable the extension with GNOME Extensions or GNOME Tweaks application 9) Press Super+Alt+D to test
 10) You are done. Perfectly work for me! if you have some questions feel free to mail me at fedotovhome@mail.ru i will try to help you.
+
+CONFIGURAR EL TECLADO PARA NO TENER PROBLEMAS CON VIM
+Tweaks/extension
+$ sudo apt install gnome-shell-extension-prefs
+extension
+
 
 
 ############################################################## FIN ########

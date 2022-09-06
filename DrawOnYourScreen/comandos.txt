@@ -1,0 +1,33 @@
+GLOBAL
+Enter/leave drawing mode                  alt+super+D
+Grab/ungrab keyboard and pointer          ctrl+super+D
+erase all drawing                         shift+alt+b
+
+INTERNAL
+DRAW                                      left click
+MENU                                      rigfht click
+toogle fill/outline                       center click
+increment/decrement line width            scroll
+select color                              ctrl+1,...,ctrl+9
+ignore pointer movement                   space held
+leave                                     Escape
+
+select eraser(while starting drawing)     shift
+duplicate (while starting drawing)        shift
+rotate rectangule, polygon, polyline      ctrl
+undo                                      shift + alt + z
+redo                                      shift + ctrl + z
+
+select free drawing(dibujo libre)         shift+alt +p
+select line tool                          shift+alt +l
+select ellipse tool                       shift + alt +e
+select rectangule tool                       shift + alt +r
+select polyline tool                       shift + alt +y
+select polyline tool                       shift + alt +u
+select text tool                          shift + alt +t
+
+
+
+
+
+

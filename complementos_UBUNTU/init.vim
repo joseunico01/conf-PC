@@ -67,6 +67,7 @@ set shiftwidth=2
 set expandtab
 set softtabstop=2
 filetype plugin indent on
+set colorcolumn=80
 
 "cuando hagamos split se acomode abajo o arriba
 set splitbelow
@@ -599,6 +600,9 @@ let g:terminator_runfile_map = {
 "<leader>rs   ///Detiene el trabajo en ejecución en el búfer de salida
 "<leader>rm	  ///Modifica el comando a través de la línea de comando antes de ejecutarlo en el búfer de salida
 
+"conpilar java
+
+
 "#######################################
 "CONFIGURACION PARA FLUTTER
 "#######################################
@@ -738,7 +742,7 @@ augroup END
 
 "nnoremap <leader>n :CocCommand explorer<CR>
 
-nnoremap <silent> <F9> :CocCommand explorer --preset floating<CR>
+"nnoremap <silent> <F9> :CocCommand explorer --preset floating<CR>
 
 nnoremap <silent> <F2> :CocCommand explorer<CR>
 
