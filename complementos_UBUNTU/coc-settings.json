@@ -1,3 +1,4 @@
+
 {
   "languageserver": {
     "go": {
@@ -68,24 +69,28 @@
   "snippets.ultisnips.directories": ["UltiSnips"],
   "snippets.snipmate.enable": true,
   //Prettier
+  "prettier.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "scss",
-    "markdown",
     "dart",
     "java",
     "php",
-    "json",
     "html",
     "python",
     "django",
     "htmldjango",
-    "ts"
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json"
   ],
+  //"prettier.documentSelectors": ["**/*.abc"],
+  //"prettier.configPath": "~/.prettierrc",
+
   //EMMET
-  "emmet.excludeLanguages": [
-    "css"
-  ],
+  "emmet.excludeLanguages": ["css", "javascript"],
   "emmet.includeLanguages": {
     "htmldjango": "html",
     "javascript": "javascriptreact"
@@ -96,20 +101,20 @@
   "eslint.format.enable": true,
   "eslint.run": ["onType", "onSave"],
   "eslint.probe": [
-  "javascript",
-  "javascriptreact",
-  "typescript",
-  "typescriptreact",
-  "html",
-  "vue",
-  "markdown",
-  "python",
-  "dart",
-  "css",
-  "php",
-  "java",
-  "htmldjango",
-  "djhtml"
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "python",
+    "dart",
+    "css",
+    "php",
+    "java",
+    "htmldjango",
+    "djhtml"
   ],
   //ICONS
   "codeLens.enable": true,
@@ -160,12 +165,13 @@
     "vue",
     "blade",
     "htmldjango",
+    "javascript",
     "typescriptreact",
     "javascriptreact"
   ],
   //EXPLORER
   // coc-settings.json
-    // coc-settings.json
+  // coc-settings.json
   "explorer.focus": true,
   //"explorer.openAction.for.directory": "expandOrCollapse",
   "explorer.previewAction.onHover": false,
@@ -278,25 +284,27 @@
   "tabnine.disable_file_regex": [
     "[.]md$",
     "[.]html$",
+    "[.]txt$",
+    "[.]php$",
     "[.]css$",
     "[.]scss$",
     "[.]dart$",
     "[.]js$",
     "[.]ts$",
+    "[.]java$"
   ],
   "javascript.referencesCodeLens.enable": false,
   "typescript.referencesCodeLens.enable": false,
   //Configuration CSS
   "cssmodules.camelCase": true,
   "cssmodules.hintName": " cssmodules ",
-  //CONFIGUTACION DE HTML CSS SUPPORT 
-    "html-css-support.enabledLanguages": [
-        "html",
-        "vue",
-        "blade",
-        "htmldjango",
-        "typescriptreact",
-        "javascriptreact"
-    ]
+  //CONFIGUTACION DE HTML CSS SUPPORT
+  "html-css-support.enabledLanguages": [
+    "html",
+    "vue",
+    "blade",
+    "htmldjango",
+    "typescriptreact",
+    "javascriptreact"
+  ]
 }
-
