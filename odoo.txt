@@ -1,3 +1,8 @@
+###########################################################################
+ INSTALAR ODOO UBUNTU
+################################# INICIO ##################################
+description: Guia de como instalarlo
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 INSTALACION
 1. Descargar el .deb de su pagina oficial
 2. sudo dpkg -i odoo.deb
@@ -6,4 +11,7 @@ OJO: Debemos tener postgresql instalado
 sudo systemcl status postgresql && odoo
 #Para ver el puerto donde se esta instalando
 4. tail -n 15 /var/log/odoo/odoo-server.log
+5. para ingresar debemos de poner localhost:nroPuerto
+example: http://localhost:8069/
 
+############################################################## FIN ########
