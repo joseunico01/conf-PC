@@ -1,0 +1,9 @@
+INSTALACION
+1. Descargar el .deb de su pagina oficial
+2. sudo dpkg -i odoo.deb
+3. sudo apt install -f
+OJO: Debemos tener postgresql instalado
+sudo systemcl status postgresql && odoo
+#Para ver el puerto donde se esta instalando
+4. tail -n 15 /var/log/odoo/odoo-server.log
+
