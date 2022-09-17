@@ -13,5 +13,21 @@ sudo systemcl status postgresql && odoo
 4. tail -n 15 /var/log/odoo/odoo-server.log
 5. para ingresar debemos de poner localhost:nroPuerto
 example: http://localhost:8069/
+6.se los recomiendo hacerlos por PGAdmind
+sudo -u postgres createuser -s ODOO
+createdb odoo
+
+OJO: ES IMPORTANTE INSTALAR LO SUIGUIENTE
+sudo apt-get install wkhtmltopdf
+
+
+DATOS de la primera creacion:
+Master Password: vkm8-jzxn-vdx5
+Database Name: odoo
+Email: admin
+Password: admin
+Phone Number:
+Demo data: check buenita xd
+
 
 ############################################################## FIN ########

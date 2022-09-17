@@ -31,7 +31,7 @@ psql -c "alter user postgres with password 'StrongAdminP@ssw0rd'"
 psql
 #   ejemplo: postgres@jose-Aspire-A315-23:~$ psql -c "alter user postgres with password 'vasquez'"
 #            ALTER ROLE
-  
+
 /*
 Obtenga detalles de conexión como a continuación.
 $ psql
@@ -83,7 +83,7 @@ privada  (LAN).
 Para habilitar conexiones remotas, edite el archivo de configuración de PostgreSQL:
 */
 
-$ sudo nvim /etc/postgresql/13/main/postgresql.conf 
+$ sudo nvim /etc/postgresql/13/main/postgresql.conf
 
 # Descomente la línea  59  y cambie la dirección de escucha para aceptar conexiones
 # dentro de sus redes.
@@ -109,8 +109,8 @@ sudo systemctl restart postgresql
 
 # Confirmar direcciones de escucha.
 # netstat  -tunelp | grep 5432
-tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN      111        112837     11143/postgres      
-tcp6       0      0 :::5432                 :::*        
+tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN      111        112837     11143/postgres
+tcp6       0      0 :::5432                 :::*
 
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -190,7 +190,7 @@ sudo netstat -antup | grep 80
 # Verificar en el puerto 80, si esta ecuchando
 <Your IP>:80
 
-# Para detener el programa 
+# Para detener el programa
 sudo systemctl stop program-name
 
 #Para eliminar el programa
@@ -212,3 +212,5 @@ sudo systemctl status apache2
 
 
 ############################################################## FIN ########
+
+contraseña master: vasquez
