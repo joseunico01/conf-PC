@@ -1,43 +1,9 @@
-"ESTA CONFIGURACION ES FINAL
-"INSTALAR PYTON EN NEOVIM
-"sudo apt install python3-pip
-"pip3 install --upgrade pynvim
-
-"No te olvides de guardar en .conf/nvim/init.vim
-"#solo instalar el primero copiar '+y   pegar  "+p
-"sudo apt install xclip
-"sudo apt install xsel
-
-"INSTALAR LIVE SERVER EN NEOVIM
-"npm i -g live-server
-"Commands LIVE SERVER EN TERMINAL
-"live-server some-file.html
-
-"TERMINAL SALIR DE MODO ESCRITURA DEL
-"ctrl + \ + ctrl + n
-
-"BUSQUEDA PARA DIFERENCIAR MAYUSCULAS DE MINUSCULA, no lo actives
-"set ignorecase smartcase
-
-"BUSCAR 2 PALABRA DIFERENTES EN UNA SOLA BUSQUEDA
-"/hello\|hola
-"/\vhello|hola
-
-"MOVERSE ENTRE PALABRAS
-",,w       /// para moverse hacia delante
-",,b       /// para moverse hacia delante
-
-"PLEGADO DE LINEAS
-"Como plegar          z+a    ///Sirve para plegar y desplegar
-"z+o         ///abrir un pliege
-"z+shift+r   ///Para abrir todos los pliegues
-"z+c         ///Para cerrar un pliegue
-"z+m /// z+shift+m ///para cerrar los pliegues
-"CONFIGURACION DE NEOVIM
-
-
+"___________________________________________________________________________
+"###########################################################################
+"NVIM CONFIGURACION GENERAL
+"################################# INICIO ##################################
+"TODO: CONFIGURATION GENERAL
 autocmd BufWritePre * :%s/\s\+$//e
-
 set noswapfile
 syntax on
 set mouse=a
@@ -73,14 +39,13 @@ set colorcolumn=80
 set splitbelow
 set splitright
 
-"Para pelgar codigo de lenguaje de programacion
 set foldmethod=syntax
 "set foldmethod=indent
 set nofoldenable        "dont fold by default
 
-"scriptencoding utf-8
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: INSTALACION DE PLUGIN
 call plug#begin('~/.config/nvim/plugged')
-
 
 "Themes
 Plug 'joshdick/onedark.vim'
@@ -95,7 +60,6 @@ Plug 'rakr/vim-one'
 "Busqueda
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
-"Plug 'preservim/nerdtree'
 Plug 'voldikss/vim-floaterm' "TERMINAL
 
 "Status Bar
@@ -103,9 +67,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/popup.nvim'
 Plug 'dhruvasagar/vim-dotoo'
-
 
 "Tmux
 Plug 'yazgoo/vmux'
@@ -113,13 +78,11 @@ Plug 'christoomey/vim-tmux-navigator'   "poder navegar entreeararchivos abiertos
 
 "Autocomplementado
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'mattn/emmet-vim'     "emmet para diseño web
-"Plug 'mfussenegger/nvim-jdtls'
 Plug 'docteurklein/php-getter-setter.vim' "getter-setter php
 Plug 'dinduks/vim-java-get-set'
 "Para invocar getter and setter, primero subrayamos lo q queremos insertar
 "Para java // :InsertGetterSetter
-Plug 'aca/completion-tabnine', { 'do': 'version=3.1.9 ./install.sh' }
+"Plug 'aca/completion-tabnine', { 'do': 'version=3.1.9 ./install.sh' }
 
 "TERMINAL
 Plug 'erietz/vim-terminator', { 'branch': 'main'} "ejecutar codigo de lenguajes de progra
@@ -128,9 +91,6 @@ Plug 'erietz/vim-terminator', { 'branch': 'main'} "ejecutar codigo de lenguajes 
 Plug 'sheerun/vim-polyglot' "resalta de color los lenguajes de progra
 "Plug 'jwalton512/vim-blade' "resalta el lenguaje blade
 Plug 'majutsushi/tagbar' "Para ver las variables generales de nuestro leng.programacion
-"Tambien se nesecita instalar sudo apt install exuberant-ctags
-"Luego creamos en cd opt/ --el sig.comad-- sudo ctags -R ./
-"Plug 'godlygeek/tabular'
 Plug 'lilydjwg/colorizer' "Color hexadecimal en css
 Plug 'KabbAmine/vCoolor.vim'   "insertar color
 Plug 'valloric/matchtagalways'
@@ -138,8 +98,7 @@ Plug 'sbdchd/neoformat'  "prettier javascript
 
 "IDE
 Plug 'terryma/vim-multiple-cursors'
-"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'easymotion/vim-easymotion'  "buscar una palabra en nuestra pagina actual <leader>s +(letra)
+Plug 'easymotion/vim-easymotion'  "buscar una palabra en nuestra pagina actual <leader>u +(letra)
 Plug 'Yggdroot/indentLine'              "indentacion
 Plug 'scrooloose/nerdcommenter' "comentarios
 Plug 'jiangmiao/auto-pairs'             "autocompletado de llaves, corchetes, etc
@@ -156,7 +115,6 @@ Plug 'vim-scripts/TaskList.vim'
 "todoshow para vim, todo,fixme en mayuscula
 "funciona con <leader> t  #salir q, mantener ventana y volver a pantalla e
 
-
 "CONFIGURACION FLUTTER
 Plug 'dart-lang/dart-vim-plugin' "da resaltado a sintaxis de dart
 "Plug 'natebosch/vim-lsc'
@@ -169,10 +127,45 @@ Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
-" default updatetime 4000ms is not good for async update
-"set updatetime=100
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: INSTRUCCIONES EXTRAS
+"ESTA CONFIGURACION ES FINAL
+"INSTALAR PYTON EN NEOVIM
+"sudo apt install python3-pip
+"pip3 install --upgrade pynvim
 
-"Confioguraciones Extras
+"No te olvides de guardar en .conf/nvim/init.vim
+"#solo instalar el primero copiar '+y   pegar  "+p
+"sudo apt install xclip
+
+"INSTALAR LIVE SERVER EN NEOVIM
+"npm i -g live-server
+"Commands LIVE SERVER EN TERMINAL
+"live-server some-file.html
+
+"TERMINAL SALIR DE MODO ESCRITURA DEL
+"ctrl + \ + ctrl + n
+
+"BUSQUEDA PARA DIFERENCIAR MAYUSCULAS DE MINUSCULA, no lo actives
+"set ignorecase smartcase
+
+"BUSCAR 2 PALABRA DIFERENTES EN UNA SOLA BUSQUEDA
+"/hello\|hola
+"/\vhello|hola
+
+"MOVERSE ENTRE PALABRAS
+",,w       /// para moverse hacia delante
+",,b       /// para moverse hacia delante
+
+"PLEGADO DE LINEAS
+"Como plegar          z+a    ///Sirve para plegar y desplegar
+"z+o         ///abrir un pliege
+"z+shift+r   ///Para abrir todos los pliegues
+"z+c         ///Para cerrar un pliegue
+"z+m /// z+shift+m ///para cerrar los pliegues
+
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: CONFIOGURACIONES THEMES
 "colorscheme onedark
 
 " Gruvbox por defecto
@@ -183,9 +176,6 @@ call plug#end()
 
 "DRACULA THEME
 "colorscheme dracula
-
-"Para el plugin majutsushi/tagbar
-"sudo apt install exuberant-ctags
 
 "MOLOKAI THEME
 "let g:molokai_original = 1
@@ -226,9 +216,9 @@ let g:airline_theme='onehalfdark'
 "set background=light "theme light
 
 
-"CTAGS CONFIGURACON
-let g:tagbar_ctags_bin="/usr/bin/ctags"
 
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: CONFIOGURACIONES MAPLEADER
 let mapleader=","
 
 "split resize
@@ -241,21 +231,18 @@ nnoremap <Leader>; $a;<Esc>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 
-"Abreviaciones
-"cnoreabbrev tree NERDTreeToogle
-"cnoreabbrev find NERDTreefind
-"cnoreabbrev diff gdiff
-
-"NERDTree
-"map <Leader>nt :NERDTreeFocus<CR>
 noremap <Leader>k :bnext<CR>
 "<silent>solo funciona cuando estas dentro de vim
-"nnoremap <silent> <F2> :NERDTreeFind<CR>
-"nnoremap <silent> <F2> :NERDTreeToggle<CR>
 
 nmap <space>e <Cmd>CocCommand explorer<CR>
 "FZF
 map <Leader>p :Files<CR>
+map <Leader>l :Lines<CR>
+map <Leader>ll :BLines<CR>
+map <Leader>m :Marks<CR>
+map <Leader>b :Buffers<cr>
+map <Leader>bb :Windows<cr>
+
 "map <Leader>ag :Ag<CR>
 
 "termninal emulation
@@ -265,15 +252,9 @@ nnoremap <c-t> :split<CR>:ter<CR>:resize 10<CR>
 "Diagnost-mostar la ubicacion de donde nos encontramos
 nnoremap <leader>kp :let @*=expand("%")<CR>
 
-"tabs navigation, para navegar entre tabs gt gT
-"map <Leader>h :tabprevious<cr>
-"map <Leader>l :tabnext<cr>
-"Crear t
 "NO USAREMOS LEADER + t, por q tenemos todoshow usa ese comando
 "nnoremap <Leader>t :tabnew <insert>
 
-"buffers
-map <Leader>bf :Buffers<cr>
 "siguiente buffers y anterior buffer
 nnoremap <Leader>k :bnext<CR>
 nnoremap <Leader>j :bprevious<CR>
@@ -281,9 +262,8 @@ nnoremap <Leader>x :bdelete<CR>
 nnoremap <Leader>y "+y<CR>
 
 "Split
-nnoremap <Leader>vs :vsp<CR>
-nnoremap <Leader>sp :sp<CR>
-
+nnoremap <Leader>v :vsp<CR>
+nnoremap <Leader>s :sp<CR>
 
 "Para q las feclas no funcionen
 noremap <up> <nop>
@@ -301,7 +281,9 @@ nmap <F5> :source ~/.config/nvim/init.vim<CR>
 vmap <F5> :source ~/.config/nvim/init.vim<CR>
 
 
-"CONFIGURAR HTML IDENTACION
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: CONFIGURAR HTML IDENTACION
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 "Link - https://vi.stackexchange.com/questions/2306/html-syntax-folding-in-vim#comment13471_2333
 "syntax region htmlFold start="<\z(\<\(area\|base\|br\|col\|command\|embed\|hr\|img\|input\|keygen\|link\|meta\|para\|source\|track\|wbr\>\)\@![a-z-]\+\>\)\%(\_s*\_[^/]\?>\|\_s\_[^>]*\_[^>/]>\)" end="</\z1\_s*>" fold transparent keepend extend containedin=htmlHead,htmlH\d
 "VIM
@@ -312,31 +294,20 @@ vmap <F5> :source ~/.config/nvim/init.vim<CR>
 "Eliminar los comentarios de un archivo
 nnoremap <Leader>d :g/^\s*#/d<CR>
 
-
 "Buscamos con 2 letras un palabra en nuestro archivo
-nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Leader>u <Plug>(easymotion-s2)
 
 "Ejecutar un archivo javascrip/node
 "nnoremap <Leader>x :!node %<cr>
 
 
-
-
-"Crear paneles del mismo codigo :vsp, :sp
-
-"faster scrolling
-"nnoremap <C-j> 10<C-e>
-"nnoremap <C-k> 10<C-y>
-
-"##################################################################
-"CONFIGURACION VIM AIRLINE
-"##################################################################
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: VIM AIRLINE
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme='google_dark'
-
 "let g:airline_statusline_ontop=0
-
 let g:airline#extensions#default#section_truncate_width = {
     \ 'b': 79,
     \ 'x': 60,
@@ -352,26 +323,19 @@ let g:airline#extensions#default#layout = [
     \ ]
 
 
-"##################################################################
-"COC NVIM
-"##################################################################
-"CONFIGURACION PRETTIER
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: COC NVIM
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ":Prettier    "usaremos para formatear el buffer actual
-" Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
-
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: There's always complete item selected by default, you may want to enable
-" no select by `"suggest.noselect": true` in your configuration file.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
@@ -379,13 +343,9 @@ inoremap <silent><expr> <TAB>
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-"Para q el autocomentado funcione con enter
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"Con enter completar
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -463,16 +423,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <C-s> <Plug>(coc-range-select)
@@ -511,56 +461,9 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-"#######################################
-"CONFIGURACION PARA TELESCOPE
-"#######################################
-
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
-
-"#######################################
-"CONFIGURACION PARA EMET
-"#######################################
-"Aca escribiremos ctrl+z+,
-"let g:user_emmet_leader_key='<C-Z>'
-"let g:user_emmet_settings = {
-"\  'variables': {'lang': 'es'},
-"\  'html': {
-"\    'default_attributes': {
-"\      'option': {'value': v:null},
-"\      'textarea': {'id': v:null, 'name': v:null, 'cols': 10, 'rows': 10},
-"\    },
-"\    'snippets': {
-"\      'html:5': '<!DOCTYPE html>\n'
-"\              ."<html lang=\"${lang}\">\n"
-"\              ."<head>\n"
-"\              ."\t<meta charset=\"${charset}\">\n"
-"\              ."\t<title></title>\n"
-"\              ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
-"\              ."</head>\n"
-"\              ."<body>\n\t${child}|\n</body>\n"
-"\              ."</html>",
-"\    },
-"\  },
-"\}
-
-"Para q funcione solo en html/css
-"let g:user_emmet_install_global = 1
-"autocmd FileType html,css,django EmmetInstall
-
-"#######################################
-"CONFIGURACION PARA COC SNIPETS
-"#######################################
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: COC SNIPETS
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 " Use <C-l> for trigger snippet expand.
 imap <c-l> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
@@ -574,16 +477,18 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
-
-
-"CONFIGURACION DE TAGBAR
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: TAGBAR
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"Tambien se nesecita instalar sudo apt install exuberant-ctags
+let g:Tlist_Ctags_Cmd='/usr/bin/etags'
 ":TagbarOpen f    para ver mas completo
 nmap <F8> :TagbarToggle<CR>
 
 
-"#######################################
-"CONFIGURACION PARA VIM-TERMINAL
-"#######################################
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: VIM-TERMINAL
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 let g:terminator_runfile_map = {
             \ "javascript": "node",
             \ "python": "python3 -u",
@@ -598,34 +503,53 @@ let g:terminator_runfile_map = {
 "<leader>rs   ///Detiene el trabajo en ejecución en el búfer de salida
 "<leader>rm	  ///Modifica el comando a través de la línea de comando antes de ejecutarlo en el búfer de salida
 
-"conpilar java
+
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO:  TELESCOPE
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files <cr>
+nnoremap <leader>fg <cmd>Telescope live_grep prompt_prefix=🔍<cr>
+"Para q funciones instalar
+"sudo apt  install ripgrep
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+"GIT TELESCOPE
+nnoremap <leader>gs <cmd>Telescope git_status<cr>
+nnoremap <leader>gss <cmd>Telescope git_stash<cr>
+nnoremap <leader>gc <cmd>Telescope git_commits<cr>
+nnoremap <leader>gcc <cmd>Telescope git_bcommits<cr>
+nnoremap <leader>gb <cmd>Telescope git_branches<cr>
+
+"Opciones extras
+nnoremap <leader>ft <cmd>Telescope colorscheme <cr>
+nnoremap <leader>fc <cmd>Telescope command_history<cr>
+nnoremap <leader>fm <cmd>Telescope marks<cr>
+nnoremap <leader>fk <cmd>Telescope keymaps<cr>
 
 
-"#######################################
-"CONFIGURACION PARA FLUTTER
-"#######################################
-nnoremap <leader>fa :FlutterRun<cr>
-nnoremap <leader>fq :FlutterQuit<cr>
-nnoremap <leader>fr :FlutterHotReload<cr>
-nnoremap <leader>fR :FlutterHotRestart<cr>
-nnoremap <leader>fs :FlutterSplit<cr>
-nnoremap <leader>fe :FlutterEmulators<cr>
-
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO:FLUTTER, activar solo cuando usemos
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"nnoremap <leader>fa :FlutterRun<cr>
+"nnoremap <leader>fq :FlutterQuit<cr>
+"nnoremap <leader>fr :FlutterHotReload<cr>
+"nnoremap <leader>fR :FlutterHotRestart<cr>
+"nnoremap <leader>fs :FlutterSplit<cr>
+"nnoremap <leader>fe :FlutterEmulators<cr>
 "Ejecutar Flutter con ConNvim
 ":CocCommand flutter.run
-"
 
-"#######################################
-"CAMBIAR DE MAYUSCULA A MISNUSCULA
-"#######################################
-"Con los sig. comandos podemos cambiar, y viciversa
-"  g~iw  /// cambia de minuscula a MAYUSCULA
-"  guG   ///  u  /// cambia toda la linea a minuscula
-"  gU$   ///  U   /// cambia toda la linea a MAYUSCULA
-
-"#######################################
-"GETTER SETTER- PHP
-"#######################################
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO:GETTER SETTER- PHP
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         let g:phpgetset_getterTemplate =
     \ "    \n" .
     \ "    /*" .
@@ -646,10 +570,9 @@ nnoremap <leader>fe :FlutterEmulators<cr>
   \ "        $this->%varname% = $%varname%;\n" .
   \ "    }"
 
-"#######################################
-"GETTER SETTER- JAVA
-"#######################################
-
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO:GETTER SETTER- JAVA
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   let b:javagetset_getterTemplate =
     \ "\n" .
     \ "/*  Get %varname% */\n" .
@@ -664,30 +587,24 @@ nnoremap <leader>fe :FlutterEmulators<cr>
   \ "    this.%varname% = %varname%;\n" .
   \ "}"
 
-"#######################################
-"CONFIGURAR HTML-FILES
-"#######################################
-"let g:html5_aria_attributes_complete = 0
-"let g:html5_microdata_attributes_complete = 0
-"let g:html5_event_handler_attributes_complete = 0
-
-"#######################################
-"CONFIGURAR COC DJHTML-DJANGO
-"#######################################
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO:DJHTML-DJANGO
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 nmap <silent> ga <Plug>(coc-codeaction-line)
-
 let g:syntastic_python_checkers = ['pylint', 'djhtml', 'djangohtml', 'python']
 
-"#######################################
-"CONFIGURACION DE CTRLP.VIM
-"#######################################
+
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: CTRLP.VIM
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
   let g:ctrlp_working_path_mode = 'ra'
 
-"#######################################
-"CONFIGURACION FLOATERM TERMINAL
-"#######################################
+
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: FLOATERM TERMINAL
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 let g:floaterm_autoinsert=1
 let g:floaterm_width=0.8
 let g:floaterm_height=0.8
@@ -696,9 +613,9 @@ let g:floaterm_autoclose=1
 let g:floaterm_keymap_toggle = '<F1>'
 
 
-"#######################################
-"CONF COC EXPLORER
-"#######################################
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: COC EXPLORER
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 function! s:explorer_cur_dir()
   let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
   return fnamemodify(node_info['fullpath'], ':h')
@@ -714,7 +631,6 @@ function! s:init_explorer()
   set winblend=10
 
   " Integration with other plugins
-
   " CocList
   nmap <buffer> <Leader>fg <Cmd>call <SID>exec_cur_dir('CocList -I grep')<CR>
   nmap <buffer> <Leader>fG <Cmd>call <SID>exec_cur_dir('CocList -I grep -regex')<CR>
@@ -736,17 +652,14 @@ augroup CocExplorerCustom
   autocmd BufEnter * call <SID>enter_explorer()
   autocmd FileType coc-explorer call <SID>init_explorer()
 augroup END
-
-
 "nnoremap <leader>n :CocCommand explorer<CR>
-
 "nnoremap <silent> <F9> :CocCommand explorer --preset floating<CR>
-
 nnoremap <silent> <F2> :CocCommand explorer<CR>
 
 
-"TABNINE
-" vimrc
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: TABNINE
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 let g:completion_chain_complete_list = {
     \ 'default': [
     \    {'complete_items': ['lsp', 'snippet', 'tabnine' ]},
@@ -771,9 +684,10 @@ let g:completion_tabnine_sort_by_details=1
 " from current line -1000 ~ +1000 lines is passed as input
 let g:completion_tabnine_max_lines=1000
 
-"#######################################
-"GIT GUTTER #muestra la modificacion al costado si hubo en git
-"#######################################
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: GIT GUTTER
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"muestra la modificacion al costado si hubo en git
 "terminal digitar:
 "sudo nvim -u NONE -c "helptags vim-gitgutter/doc" -c q
 nmap ]h <Plug>(GitGutterNextHunk)
@@ -782,26 +696,25 @@ let g:gitgutter_max_signs = 500  " default value (Vim < 8.1.0614, Neovim < 0.4.0
 let g:gitgutter_max_signs = -1   " default value (otherwise)
 
 
-"#######################################
-"TODO COMMENTS
-"#######################################
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: COMMENTS
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 let g:dotoo#agenda#files=['~Documents/dotoo-files/*.dotoo']
 let g:dotoo#capture#refile=expand('~Documents/dotoo-files/refile.dotoo')
 
 
-"#######################################
-"VCOLOR
-"#######################################
-"COLOR HEXAGESIMAL
-"<Alt-C>      #abrir en modo normal e insertar
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: VCOLOR
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"<Alt-C>      #abrir en modo normal e insertar, hexagesimal
 "<Alt-R>      #color rgb
 "<Alt-V>      #color hsl
 "<Alt-W>      #color rgba
 
 
-"#######################################
-"VIM-FUIGITIVE
-"#######################################
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: VIM-FUIGITIVE
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 "terminal digitar:
 "sudo nvim -u NONE -c "helptags fugitive/doc" -c q
 "git status    #:G
@@ -811,9 +724,9 @@ let g:dotoo#capture#refile=expand('~Documents/dotoo-files/refile.dotoo')
 "git push      #:G push
 
 
-"#######################################
-"JS FORMAT NEOFORMAT, formateador de js, ts, react
-"#######################################
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+"TODO: JS format neoformat, formateador de js, ts, react
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 "link: https://hashrocket.com/blog/posts/writing-prettier-javascript-in-vim
 let g:neoformat_try_formatprg = 1
 augroup NeoformatAutoFormat
@@ -825,3 +738,5 @@ augroup NeoformatAutoFormat
                                                             \--trailing-comma\ es5
     autocmd BufWritePre *.ts,*.js,*.jsx Neoformat
 augroup END
+
+"############################################################## FIN ########
