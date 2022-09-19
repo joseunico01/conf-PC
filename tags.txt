@@ -1,0 +1,33 @@
+
+Combinaciones de teclas de la barra de etiquetas
+"
+" --------- General ---------
+" <CR>: Saltar a la definición de la etiqueta
+" p: Como arriba, pero permanece en la ventana de la barra de etiquetas
+" P: Mostrar etiqueta en la ventana de vista previa
+" <C-N>: Ir a la siguiente etiqueta de nivel superior
+" <C-P>: Ir a la etiqueta de nivel superior anterior
+" <Espacio>: Mostrar prototipo de etiqueta
+" v: Ocultar etiquetas no públicas
+"
+" ---------- Pliegues ----------
+" +, <kMás>, zo: Abrir pliegue
+" -, <kMenos>, zc: Cerrar pliegue
+" o, za: Alternar pliegue
+" *, <kMultiplicar>, zR: Abrir todos los pliegues
+" =, zM: Cerrar todos los pliegues
+" zr: Incrementa el nivel de plegado en 1
+" zm: Disminuye el nivel de plegado en 1
+" zj: Ir al siguiente pliegue
+"zk: Ir al pliegue anterior
+"
+" ---------- Varios -----------
+" s: Alternar ordenación
+" i: alternar la opción de clasificación que no distingue entre mayúsculas y minúsculas
+" c: alternar la opción de cierre automático
+" t: Alternar pausa
+" x: acercar/alejar la ventana
+" q: Cerrar ventana
+" <F1>, ?: alternar ayuda
+
+Ícono de validado por la comunidad
